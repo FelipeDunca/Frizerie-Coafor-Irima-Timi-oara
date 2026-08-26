@@ -3,20 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Beauty Timișoara | Salon de Înfrumusețare</title>
+    <title>Frizerie Coafor Irima | Timișoara</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary: #c59b27;
-            --primary-hover: #a37f1e;
-            --bg-light: #faf8f5;
-            --text-dark: #1f1f1f;
+            --primary: #a87b32;
+            --primary-hover: #8a6324;
+            --bg-light: #fbf9f5;
+            --card-bg: #ffffff;
+            --text-dark: #222222;
             --text-muted: #666666;
-            --white: #ffffff;
-            --shadow: 0 10px 30px rgba(0,0,0,0.05);
+            --accent-soft: #f4eae0;
+            --shadow: 0 10px 25px rgba(0,0,0,0.06);
         }
 
         * {
@@ -37,19 +38,19 @@
             font-family: 'Cormorant Garamond', serif;
         }
 
-        /* Header & Nav */
+        /* Header Navigation */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
+            background: rgba(255, 255, 255, 0.96);
+            backdrop-filter: blur(8px);
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 15px rgba(0,0,0,0.04);
         }
 
         .nav-container {
-            max-width: 1200px;
+            max-width: 1150px;
             margin: 0 auto;
             display: flex;
             justify-content: space-between;
@@ -58,7 +59,7 @@
         }
 
         .logo {
-            font-size: 24px;
+            font-size: 22px;
             font-weight: 700;
             color: var(--text-dark);
             text-decoration: none;
@@ -67,6 +68,7 @@
 
         .logo span {
             color: var(--primary);
+            font-weight: 400;
         }
 
         .nav-links {
@@ -89,9 +91,9 @@
 
         .btn-call {
             background-color: var(--primary);
-            color: var(--white);
+            color: #ffffff;
             padding: 10px 22px;
-            border-radius: 30px;
+            border-radius: 25px;
             text-decoration: none;
             font-weight: 600;
             font-size: 14px;
@@ -108,27 +110,42 @@
 
         /* Hero Section */
         .hero {
-            padding: 160px 20px 100px;
+            padding: 160px 20px 90px;
             text-align: center;
-            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80') center/cover;
+            background: linear-gradient(rgba(251, 249, 245, 0.88), rgba(251, 249, 245, 0.95)), 
+                        url('https://images.unsplash.com/photo-1521590832167-7bcbfaa6381f?auto=format&fit=crop&w=1200&q=80') center/cover;
+        }
+
+        .rating-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background-color: var(--accent-soft);
+            color: var(--primary-hover);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 15px;
         }
 
         .hero h1 {
-            font-size: 48px;
+            font-size: 46px;
             margin-bottom: 15px;
             color: var(--text-dark);
+            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 18px;
+            font-size: 17px;
             color: var(--text-muted);
-            max-width: 600px;
+            max-width: 650px;
             margin: 0 auto 30px;
         }
 
-        /* Sections General */
+        /* Layout & Cards */
         section {
-            padding: 80px 20px;
+            padding: 70px 20px;
         }
 
         .container {
@@ -138,7 +155,7 @@
 
         .section-header {
             text-align: center;
-            margin-bottom: 50px;
+            margin-bottom: 45px;
         }
 
         .section-header h2 {
@@ -154,22 +171,70 @@
             font-size: 12px;
         }
 
-        /* Pricing Section */
-        .pricing-grid {
+        /* About Section */
+        .about-box {
+            background: var(--card-bg);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--primary);
+            margin-bottom: 40px;
+        }
+
+        .about-box p {
+            margin-bottom: 15px;
+            color: var(--text-dark);
+            font-size: 15px;
+        }
+
+        /* Feature Grid */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            padding: 22px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border: 1px solid #efe8de;
+        }
+
+        .feature-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card h4 {
+            font-size: 16px;
+            color: var(--text-dark);
+            margin-bottom: 5px;
+        }
+
+        .feature-card p {
+            font-size: 13px;
+            color: var(--text-muted);
+        }
+
+        /* Services Grid */
+        .services-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
 
-        .price-card {
-            background: var(--white);
+        .service-card {
+            background: var(--card-bg);
             padding: 30px;
             border-radius: 16px;
             box-shadow: var(--shadow);
-            border: 1px solid #f0e6d2;
+            border: 1px solid #f0e7dc;
         }
 
-        .price-card h3 {
+        .service-card h3 {
             font-size: 24px;
             color: var(--primary);
             margin-bottom: 20px;
@@ -177,7 +242,7 @@
             border-bottom: 2px solid var(--bg-light);
         }
 
-        .price-item {
+        .service-item {
             display: flex;
             justify-content: space-between;
             padding: 12px 0;
@@ -185,21 +250,13 @@
             font-size: 14px;
         }
 
-        .price-item:last-child {
+        .service-item:last-child {
             border-bottom: none;
-        }
-
-        .price-item span {
-            color: var(--text-dark);
-        }
-
-        .price-item strong {
-            color: var(--primary);
         }
 
         /* Reviews Section */
         .reviews-bg {
-            background-color: var(--white);
+            background-color: var(--card-bg);
         }
 
         .reviews-grid {
@@ -230,19 +287,22 @@
         .author {
             font-weight: 600;
             font-size: 13px;
+            color: var(--text-dark);
         }
 
-        /* Contact & Location */
+        /* Contact Section */
         .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 40px;
-            align-items: center;
+            align-items: start;
         }
 
-        .contact-info h3 {
-            font-size: 28px;
-            margin-bottom: 15px;
+        .info-card {
+            background: var(--card-bg);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
         }
 
         .info-item {
@@ -251,14 +311,16 @@
 
         .info-item strong {
             display: block;
-            font-size: 14px;
+            font-size: 13px;
             color: var(--primary);
             text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 4px;
         }
 
         .map-box {
             width: 100%;
-            height: 320px;
+            height: 380px;
             border-radius: 16px;
             overflow: hidden;
             box-shadow: var(--shadow);
@@ -270,7 +332,7 @@
             border: 0;
         }
 
-        /* Mobile Sticky Call Button */
+        /* Mobile Sticky Button */
         .mobile-sticky-btn {
             display: none;
             position: fixed;
@@ -278,22 +340,30 @@
             left: 20px;
             right: 20px;
             background: var(--primary);
-            color: var(--white);
+            color: #ffffff;
             text-align: center;
             padding: 15px;
             border-radius: 30px;
             text-decoration: none;
             font-weight: 700;
-            box-shadow: 0 10px 25px rgba(197, 155, 39, 0.4);
+            box-shadow: 0 10px 25px rgba(168, 123, 50, 0.4);
             z-index: 999;
         }
 
-        /* Responsive */
+        footer {
+            text-align: center;
+            padding: 30px 20px;
+            background: var(--text-dark);
+            color: #888888;
+            font-size: 13px;
+        }
+
         @media (max-width: 768px) {
             .nav-links { display: none; }
             .hero h1 { font-size: 34px; }
             .mobile-sticky-btn { display: block; }
             section { padding: 50px 20px; }
+            .about-box { padding: 25px; }
         }
     </style>
 </head>
@@ -302,89 +372,123 @@
     <!-- Header -->
     <header>
         <div class="nav-container">
-            <a href="#" class="logo">LUXURY <span>BEAUTY</span></a>
+            <a href="#" class="logo">FRIZERIE COAFOR <span>IRIMA</span></a>
             <ul class="nav-links">
-                <li><a href="#acasa">Acasă</a></li>
-                <li><a href="#servicii">Servicii & Tarife</a></li>
+                <li><a href="#despre">Despre Noi</a></li>
+                <li><a href="#servicii">Servicii</a></li>
                 <li><a href="#recenzii">Recenzii</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
-            <a href="tel:0770414917" class="btn-call">📞 0770 414 917</a>
+            <a href="tel:0720060163" class="btn-call">📞 0720 060 163</a>
         </div>
     </header>
 
     <!-- Hero -->
-    <section id="acasa" class="hero">
+    <section class="hero">
         <div class="container">
-            <p>Salon de Înfrumusețare în Timișoara</p>
-            <h1>Răsfăț și Eleganță pentru Stilul Tău</h1>
-            <p>Servicii profesionale de hairstyling, manichiură și cosmetică în zona Parcul Lidia.</p>
-            <a href="tel:0770414917" class="btn-call" style="font-size: 16px; padding: 14px 32px;">Programează-te Acum</a>
+            <div class="rating-badge">
+                <span>★ 4.2 / 5</span> • <span>53 de Recenzii Google</span> • <span>👩 Afacere deținută de o femeie</span>
+            </div>
+            <h1>Profesionalism, Pasiune și Stil</h1>
+            <p>Servicii de frizerie și coafură adaptate stilului tău, într-o atmosferă primitoare pe Str. Martir Ioan Stanciu nr. 8.</p>
+            <a href="tel:0720060163" class="btn-call" style="font-size: 16px; padding: 14px 32px;">Programează-te la 0720 060 163</a>
         </div>
     </section>
 
-    <!-- Preturi -->
-    <section id="servicii">
+    <!-- Despre Salon -->
+    <section id="despre">
         <div class="container">
             <div class="section-header">
-                <p>Meniul Nostru</p>
-                <h2>Servicii & Tarife</h2>
+                <p>Muncă cu atenție și pasiune</p>
+                <h2>Experiență și Soluții Creative</h2>
             </div>
-            
-            <div class="pricing-grid">
-                <!-- Coafura -->
-                <div class="price-card">
-                    <h3>Coafură & Hair</h3>
-                    <div class="price-item"><span>Tuns Damă (spălat + coafat)</span> <strong>80 LEI</strong></div>
-                    <div class="price-item"><span>Coafat Ocazie / Bucle</span> <strong>120 LEI</strong></div>
-                    <div class="price-item"><span>Vopsit Clasic / Balayage</span> <strong>250 LEI</strong></div>
-                    <div class="price-item"><span>Tratament Reconstructiv</span> <strong>100 LEI</strong></div>
+
+            <div class="about-box">
+                <p><strong>Frizerie Coafor Irima</strong> este un salon de coafură apreciat în Timișoara pentru abilitatea profesională a personalului său. Muncind cu atenție și pasiune, oferim servicii adaptate fiecărui client, valorificând trăsăturile faciale și respectând stilul personal.</p>
+                <p>Salonul se distinge printr-o ambianță primitoare și un spațiu bine organizat. Deși spațiul propriu-zis este compact, atmosfera este una confortabilă, iar atenția la detalii și soluțiile creative oferite asigură o experiență plăcută de fiecare dată.</p>
+            </div>
+
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">👩</div>
+                    <h4>Proprietară Femeie</h4>
+                    <p>Salon coordonat cu atenție, pasiune și dedicație.</p>
                 </div>
 
-                <!-- Unghii -->
-                <div class="price-card">
-                    <h3>Manichiură & Pedichiură</h3>
-                    <div class="price-item"><span>Manichiură Semipermanentă</span> <strong>90 LEI</strong></div>
-                    <div class="price-item"><span>Construcție Gel</span> <strong>150 LEI</strong></div>
-                    <div class="price-item"><span>Intreținere Gel</span> <strong>110 LEI</strong></div>
-                    <div class="price-item"><span>Pedichiură Estetică</span> <strong>100 LEI</strong></div>
+                <div class="feature-card">
+                    <div class="feature-icon">📅</div>
+                    <h4>Programare în Avans</h4>
+                    <p>Recomandăm programarea telefonică pentru a evita timpii de așteptare.</p>
                 </div>
 
-                <!-- Cosmetica -->
-                <div class="price-card">
-                    <h3>Cosmetică & Estetică</h3>
-                    <div class="price-item"><span>Pensat Formă & Stilizare</span> <strong>40 LEI</strong></div>
-                    <div class="price-item"><span>Vopsit Sprâncene</span> <strong>30 LEI</strong></div>
-                    <div class="price-item"><span>Tratament Facial Hidratant</span> <strong>180 LEI</strong></div>
-                    <div class="price-item"><span>Laminare Sprâncene / Gene</span> <strong>130 LEI</strong></div>
+                <div class="feature-card">
+                    <div class="feature-icon">💳</div>
+                    <h4>Plăți Contactless & Card</h4>
+                    <p>Acceptăm carduri de debit și plăți mobile prin NFC.</p>
+                </div>
+
+                <div class="feature-card">
+                    <div class="feature-icon">🚻</div>
+                    <h4>Dotări Confortabile</h4>
+                    <p>Spațiu curat, igienizat și acces la toaletă pentru clienți.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Recenzii -->
+    <!-- Servicii -->
+    <section id="servicii" style="background-color: var(--card-bg);">
+        <div class="container">
+            <div class="section-header">
+                <p>Servicii Adaptate Fiecărui Client</p>
+                <h2>Frizerie & Coafor</h2>
+            </div>
+
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Frizerie Bărbați & Copii</h3>
+                    <div class="service-item"><span>Tuns Clasic / Modern</span> <strong>Calitate</strong></div>
+                    <div class="service-item"><span>Tuns Copii (cu răbdare & grijă)</span> <strong>Atent</strong></div>
+                    <div class="service-item"><span>Styling & Aranjat</span> <strong>Personalizat</strong></div>
+                    <div class="service-item"><span>Consultanță Fizionomie</span> <strong>Inclusă</strong></div>
+                </div>
+
+                <div class="service-card">
+                    <h3>Coafură & Hair Design</h3>
+                    <div class="service-item"><span>Tuns Damă & Aranjat</span> <strong>Adaptat</strong></div>
+                    <div class="service-item"><span>Coafat Ocazie / Bucle</span> <strong>Creativ</strong></div>
+                    <div class="service-item"><span>Vopsit & Schimbare Look</span> <strong>Profesional</strong></div>
+                    <div class="service-item"><span>Tratamente de Îngrijire</span> <strong>Eficace</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Recenzii Reale -->
     <section id="recenzii" class="reviews-bg">
         <div class="container">
             <div class="section-header">
-                <p>Ce Spun Clienții</p>
-                <h2>Recenzii de Top</h2>
+                <p>Părerea Clienților Nostri</p>
+                <h2>Recenzii Google (4.2★)</h2>
             </div>
 
             <div class="reviews-grid">
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <p>"Am fost extrem de mulțumită de serviciile de coafură! Atenție la detalii și produse de o calitate excelentă."</p>
-                    <div class="author">Elena M. — Client Google Maps</div>
+                    <p>"Sunt foarte mulțumită și recomand tuturor acest salon de frizerie-coafură, cu ajutorul doamnei de aici înfățișarea mea s-a schimbat radical în bine și deja am primit laude și felicitări de la vecini, pentru noua mea tunsoare."</p>
+                    <div class="author">Marii Mirela — Client Google Maps</div>
                 </div>
+
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <p>"Ambiență plăcută, atmosferă relaxantă și manichiură impecabilă care rezistă săptămâni întregi."</p>
-                    <div class="author">Cristina P. — Client Google Maps</div>
+                    <p>"Dupa aproape un an de cand mergem cu băiețelul nostru in acest salon pot spune ca suntem foarte mulțumiți de serviciile oferite. O doamna cu multă experiență si un spațiu primitor cu o ambianță plăcută."</p>
+                    <div class="author">ioana pas — Client Google Maps</div>
                 </div>
+
                 <div class="review-card">
                     <div class="stars">★★★★★</div>
-                    <p>"Cel mai bun salon din zona Parcul Lidia. Personal amabil și prețuri foarte corecte."</p>
-                    <div class="author">Andreea V. — Client Google Maps</div>
+                    <p>"Foarte multumita. Nu doar ca mi-a ascultat ideile nebune, dar m-a si ajutat cu o freza care sa imi avantajeze forma fetei. O doamna foarte profesionista. O sa ma intorc cu bucurie."</p>
+                    <div class="author">csillaritas — Local Guide Google</div>
                 </div>
             </div>
         </div>
@@ -394,31 +498,38 @@
     <section id="contact">
         <div class="container">
             <div class="contact-grid">
-                <div class="contact-info">
-                    <h3>Te Așteptăm la Salon</h3>
-                    <div class="info-item">
+                <div class="info-card">
+                    <h3>Contact & Program</h3>
+                    
+                    <div class="info-item" style="margin-top: 15px;">
                         <strong>Telefon & Programări:</strong>
-                        <a href="tel:0770414917" style="color:var(--text-dark); text-decoration:none; font-size: 20px; font-weight:700;">0770 414 917</a>
+                        <a href="tel:0720060163" style="color:var(--text-dark); text-decoration:none; font-size: 22px; font-weight:700;">0720 060 163</a>
                     </div>
+
                     <div class="info-item">
-                        <strong>Adresă:</strong>
-                        Timișoara, Zona Parcul Lidia
+                        <strong>Adresă Exactă:</strong>
+                        <p style="font-size: 15px;">Bloc 8, Strada Martir Ioan Stanciu nr. 8, 300720 Timișoara</p>
                     </div>
+
                     <div class="info-item">
-                        <strong>Program:</strong>
-                        Luni – Sâmbătă: 09:00 – 20:00<br>Duminică: Închis
+                        <strong>Program de Funcționare:</strong>
+                        <p style="font-size: 15px; font-weight: 600; color: #2e7d32;">Deschis zilnic — Închidere la ora 20:00</p>
                     </div>
                 </div>
 
                 <div class="map-box">
-                    <iframe src="https://maps.google.com/maps?q=Parcul%20Lidia%20Timisoara&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
+                    <iframe src="https://maps.google.com/maps?q=Strada%20Martir%20Ioan%20Stanciu%208%20Timisoara&t=&z=16&ie=UTF8&iwloc=&output=embed"></iframe>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Buton Apel Mobil -->
-    <a href="tel:0770414917" class="mobile-sticky-btn">📞 Programează-te la 0770 414 917</a>
+    <footer>
+        <p>© 2026 Frizerie Coafor Irima Timișoara. Toate drepturile rezervate.</p>
+    </footer>
+
+    <!-- Mobile Sticky Call Button -->
+    <a href="tel:0720060163" class="mobile-sticky-btn">📞 Sunați la 0720 060 163</a>
 
 </body>
 </html>
