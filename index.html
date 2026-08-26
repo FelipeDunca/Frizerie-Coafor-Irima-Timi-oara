@@ -322,7 +322,26 @@
             color: var(--primary);
             text-transform: uppercase;
             letter-spacing: 1px;
-            margin-bottom: 4px;
+            margin-bottom: 6px;
+        }
+
+        .schedule-table {
+            width: 100%;
+            font-size: 14px;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        .schedule-table td {
+            padding: 6px 0;
+            border-bottom: 1px dashed var(--border-color);
+            color: var(--text-light);
+        }
+
+        .schedule-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary);
         }
 
         .map-box {
@@ -523,7 +542,11 @@
 
                     <div class="info-item">
                         <strong>Program de Funcționare:</strong>
-                        <p style="font-size: 15px; font-weight: 600; color: #4caf50;">Deschis zilnic — Închidere la ora 20:00</p>
+                        <table class="schedule-table">
+                            <tr><td>Luni – Vineri</td><td>08:00 – 20:00</td></tr>
+                            <tr><td>Sâmbătă</td><td>08:00 – 15:00</td></tr>
+                            <tr><td>Duminică</td><td>Închis</td></tr>
+                        </table>
                     </div>
                 </div>
 
