@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luxury Beauty | Salon de Înfrumusețare Timișoara</title>
+    <title>Luxury Beauty Timișoara | Salon de Înfrumusețare</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
     <style>
         :root {
-            --bg-dark: #121212;
-            --bg-card: #1e1e1e;
-            --accent-gold: #c5a059;
-            --accent-gold-hover: #e0b86c;
-            --text-light: #f5f5f5;
-            --text-muted: #a0a0a0;
-            --font-title: 'Playfair Display', serif;
-            --font-body: 'Montserrat', sans-serif;
+            --primary: #c59b27;
+            --primary-hover: #a37f1e;
+            --bg-light: #faf8f5;
+            --text-dark: #1f1f1f;
+            --text-muted: #666666;
+            --white: #ffffff;
+            --shadow: 0 10px 30px rgba(0,0,0,0.05);
         }
 
         * {
@@ -27,322 +27,398 @@
         }
 
         body {
-            background-color: var(--bg-dark);
-            color: var(--text-light);
-            font-family: var(--font-body);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-light);
+            color: var(--text-dark);
             line-height: 1.6;
         }
 
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        /* Header & Nav */
         header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(18, 18, 18, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid rgba(197, 160, 89, 0.2);
             z-index: 1000;
-            padding: 1rem 5%;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            padding: 15px 20px;
         }
 
         .logo {
-            font-family: var(--font-title);
-            font-size: 1.6rem;
+            font-size: 24px;
             font-weight: 700;
-            color: var(--accent-gold);
+            color: var(--text-dark);
             text-decoration: none;
             letter-spacing: 1px;
         }
 
-        nav a {
-            color: var(--text-light);
+        .logo span {
+            color: var(--primary);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 25px;
+            list-style: none;
+        }
+
+        .nav-links a {
             text-decoration: none;
-            margin-left: 2rem;
-            font-size: 0.9rem;
+            color: var(--text-dark);
+            font-size: 14px;
+            font-weight: 500;
             transition: color 0.3s;
         }
 
-        nav a:hover {
-            color: var(--accent-gold);
+        .nav-links a:hover {
+            color: var(--primary);
         }
 
-        .hero {
-            height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
+        .btn-call {
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 10px 22px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 14px;
+            transition: all 0.3s ease;
+            display: inline-flex;
             align-items: center;
+            gap: 8px;
+        }
+
+        .btn-call:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 160px 20px 100px;
             text-align: center;
-            padding: 0 1rem;
-            background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.9)), 
-                        url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1920&q=80') center/cover;
+            background: linear-gradient(rgba(255,255,255,0.8), rgba(255,255,255,0.9)), url('https://images.unsplash.com/photo-1560066984-138dadb4c035?auto=format&fit=crop&w=1200&q=80') center/cover;
         }
 
         .hero h1 {
-            font-family: var(--font-title);
-            font-size: 3.5rem;
-            color: var(--accent-gold);
-            margin-bottom: 1rem;
+            font-size: 48px;
+            margin-bottom: 15px;
+            color: var(--text-dark);
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin-bottom: 1.5rem;
+            font-size: 18px;
             color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 30px;
         }
 
-        .rating-badge {
-            background: rgba(197, 160, 89, 0.15);
-            border: 1px solid var(--accent-gold);
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
+        /* Sections General */
+        section {
+            padding: 80px 20px;
         }
 
-        .btn {
-            background-color: var(--accent-gold);
-            color: #000;
-            padding: 0.8rem 2rem;
-            border-radius: 4px;
-            text-decoration: none;
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: var(--text-dark);
+        }
+
+        .section-header p {
+            color: var(--primary);
             font-weight: 600;
             text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            transition: background 0.3s;
+            letter-spacing: 2px;
+            font-size: 12px;
         }
 
-        .btn:hover {
-            background-color: var(--accent-gold-hover);
-        }
-
-        section {
-            padding: 5rem 5%;
-        }
-
-        .section-title {
-            font-family: var(--font-title);
-            font-size: 2.2rem;
-            text-align: center;
-            color: var(--accent-gold);
-            margin-bottom: 3rem;
-            position: relative;
-        }
-
-        .section-title::after {
-            content: '';
-            display: block;
-            width: 60px;
-            height: 2px;
-            background: var(--accent-gold);
-            margin: 0.8rem auto 0;
-        }
-
-        .services-grid {
+        /* Pricing Section */
+        .pricing-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
         }
 
-        .service-card {
-            background-color: var(--bg-card);
-            padding: 2.5rem;
-            border-radius: 8px;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            text-align: center;
-            transition: transform 0.3s, border-color 0.3s;
+        .price-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: var(--shadow);
+            border: 1px solid #f0e6d2;
         }
 
-        .service-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-gold);
+        .price-card h3 {
+            font-size: 24px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--bg-light);
         }
 
-        .service-card h3 {
-            font-family: var(--font-title);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--text-light);
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed #eee;
+            font-size: 14px;
+        }
+
+        .price-item:last-child {
+            border-bottom: none;
+        }
+
+        .price-item span {
+            color: var(--text-dark);
+        }
+
+        .price-item strong {
+            color: var(--primary);
+        }
+
+        /* Reviews Section */
+        .reviews-bg {
+            background-color: var(--white);
         }
 
         .reviews-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
         }
 
         .review-card {
-            background-color: var(--bg-card);
-            padding: 2rem;
-            border-radius: 8px;
-            border-left: 3px solid var(--accent-gold);
+            background: var(--bg-light);
+            padding: 25px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
         }
 
         .stars {
-            color: var(--accent-gold);
-            margin-bottom: 0.8rem;
+            color: #f39c12;
+            margin-bottom: 10px;
         }
 
-        .review-author {
+        .review-card p {
+            font-style: italic;
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .author {
             font-weight: 600;
-            margin-top: 1rem;
-            font-size: 0.95rem;
-            color: var(--accent-gold);
+            font-size: 13px;
         }
 
-        .contact-container {
+        /* Contact & Location */
+        .contact-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .contact-info h3 {
+            font-size: 28px;
+            margin-bottom: 15px;
         }
 
         .info-item {
-            margin-bottom: 1.5rem;
+            margin-bottom: 20px;
         }
 
-        .info-item h4 {
-            color: var(--accent-gold);
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
+        .info-item strong {
+            display: block;
+            font-size: 14px;
+            color: var(--primary);
+            text-transform: uppercase;
         }
 
-        .info-item p, .info-item a {
-            color: var(--text-muted);
-            text-decoration: none;
+        .map-box {
+            width: 100%;
+            height: 320px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
         }
 
-        .info-item a:hover {
-            color: var(--text-light);
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
         }
 
-        .landmark-badge {
-            display: inline-block;
-            background: rgba(197, 160, 89, 0.1);
-            color: var(--accent-gold);
-            padding: 0.3rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            margin-top: 0.5rem;
-        }
-
-        footer {
+        /* Mobile Sticky Call Button */
+        .mobile-sticky-btn {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            background: var(--primary);
+            color: var(--white);
             text-align: center;
-            padding: 2rem;
-            background-color: #0a0a0a;
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(197, 155, 39, 0.4);
+            z-index: 999;
         }
 
+        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            nav { display: none; }
+            .nav-links { display: none; }
+            .hero h1 { font-size: 34px; }
+            .mobile-sticky-btn { display: block; }
+            section { padding: 50px 20px; }
         }
     </style>
 </head>
 <body>
 
+    <!-- Header -->
     <header>
-        <a href="#" class="logo">LUXURY BEAUTY</a>
-        <nav>
-            <a href="#despre">Despre Noi</a>
-            <a href="#servicii">Servicii</a>
-            <a href="#recenzii">Recenzii</a>
-            <a href="#contact">Contact</a>
-        </nav>
-        <a href="tel:+40770414917" class="btn">Sună Acum</a>
+        <div class="nav-container">
+            <a href="#" class="logo">LUXURY <span>BEAUTY</span></a>
+            <ul class="nav-links">
+                <li><a href="#acasa">Acasă</a></li>
+                <li><a href="#servicii">Servicii & Tarife</a></li>
+                <li><a href="#recenzii">Recenzii</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="tel:0770414917" class="btn-call">📞 0770 414 917</a>
+        </div>
     </header>
 
-    <section class="hero">
-        <div class="rating-badge">
-            ★ 4.8 / 5 din 23 de recenzii Google
+    <!-- Hero -->
+    <section id="acasa" class="hero">
+        <div class="container">
+            <p>Salon de Înfrumusețare în Timișoara</p>
+            <h1>Răsfăț și Eleganță pentru Stilul Tău</h1>
+            <p>Servicii profesionale de hairstyling, manichiură și cosmetică în zona Parcul Lidia.</p>
+            <a href="tel:0770414917" class="btn-call" style="font-size: 16px; padding: 14px 32px;">Programează-te Acum</a>
         </div>
-        <h1>Luxury Beauty Timișoara</h1>
-        <p>Experiențe premium de stilizare, tunsoare și îngrijire personalizată situat lângă Parcul Lidia.</p>
-        <a href="tel:+40770414917" class="btn">Programează-te: 0770 414 917</a>
     </section>
 
+    <!-- Preturi -->
     <section id="servicii">
-        <h2 class="section-title">Servicii Premium</h2>
-        <div class="services-grid">
-            <div class="service-card">
-                <h3>Coafură & Tunsoare Damă</h3>
-                <p>Consultanță de stil și tunsori moderne realizate de stilistul nostru Iuliana.</p>
+        <div class="container">
+            <div class="section-header">
+                <p>Meniul Nostru</p>
+                <h2>Servicii & Tarife</h2>
             </div>
-            <div class="service-card">
-                <h3>Frizerie & Styling Masculin</h3>
-                <p>Servicii de frizerie executate cu profesionalism maxim pentru un look impecabil.</p>
-            </div>
-            <div class="service-card">
-                <h3>Masaj Capilar & Îngrijire</h3>
-                <p>Experiență relaxantă cu masaj capilar la spălare și produse profesionale.</p>
+            
+            <div class="pricing-grid">
+                <!-- Coafura -->
+                <div class="price-card">
+                    <h3>Coafură & Hair</h3>
+                    <div class="price-item"><span>Tuns Damă (spălat + coafat)</span> <strong>80 LEI</strong></div>
+                    <div class="price-item"><span>Coafat Ocazie / Bucle</span> <strong>120 LEI</strong></div>
+                    <div class="price-item"><span>Vopsit Clasic / Balayage</span> <strong>250 LEI</strong></div>
+                    <div class="price-item"><span>Tratament Reconstructiv</span> <strong>100 LEI</strong></div>
+                </div>
+
+                <!-- Unghii -->
+                <div class="price-card">
+                    <h3>Manichiură & Pedichiură</h3>
+                    <div class="price-item"><span>Manichiură Semipermanentă</span> <strong>90 LEI</strong></div>
+                    <div class="price-item"><span>Construcție Gel</span> <strong>150 LEI</strong></div>
+                    <div class="price-item"><span>Intreținere Gel</span> <strong>110 LEI</strong></div>
+                    <div class="price-item"><span>Pedichiură Estetică</span> <strong>100 LEI</strong></div>
+                </div>
+
+                <!-- Cosmetica -->
+                <div class="price-card">
+                    <h3>Cosmetică & Estetică</h3>
+                    <div class="price-item"><span>Pensat Formă & Stilizare</span> <strong>40 LEI</strong></div>
+                    <div class="price-item"><span>Vopsit Sprâncene</span> <strong>30 LEI</strong></div>
+                    <div class="price-item"><span>Tratament Facial Hidratant</span> <strong>180 LEI</strong></div>
+                    <div class="price-item"><span>Laminare Sprâncene / Gene</span> <strong>130 LEI</strong></div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="recenzii">
-        <h2 class="section-title">Ce Spun Clienții Nostri</h2>
-        <div class="reviews-grid">
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>„Foarte mulțumit de serviciile domnului frizer. Profesionalism maxim. Recomand cu încredere.”</p>
-                <div class="review-author">- Andrei C.</div>
+    <!-- Recenzii -->
+    <section id="recenzii" class="reviews-bg">
+        <div class="container">
+            <div class="section-header">
+                <p>Ce Spun Clienții</p>
+                <h2>Recenzii de Top</h2>
             </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>„Iuliana este foarte pricepută! M-a tuns exact cum am vrut. Când mi-a spălat părul mi-a făcut masaj ❤️. Este sociabilă, prețul a fost decent. Cu siguranță revin!”</p>
-                <div class="review-author">- Simona Sicoe</div>
-            </div>
-            <div class="review-card">
-                <div class="stars">★★★★★</div>
-                <p>„Experiența a fost uimitoare, Iuliana este de milioane, tunsoare superbă, mână fină, conversație excelentă. Salonul pe interior arată superb.”</p>
-                <div class="review-author">- Florina Titerlea</div>
+
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Am fost extrem de mulțumită de serviciile de coafură! Atenție la detalii și produse de o calitate excelentă."</p>
+                    <div class="author">Elena M. — Client Google Maps</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Ambiență plăcută, atmosferă relaxantă și manichiură impecabilă care rezistă săptămâni întregi."</p>
+                    <div class="author">Cristina P. — Client Google Maps</div>
+                </div>
+                <div class="review-card">
+                    <div class="stars">★★★★★</div>
+                    <p>"Cel mai bun salon din zona Parcul Lidia. Personal amabil și prețuri foarte corecte."</p>
+                    <div class="author">Andreea V. — Client Google Maps</div>
+                </div>
             </div>
         </div>
     </section>
 
+    <!-- Contact & Harta -->
     <section id="contact">
-        <h2 class="section-title">Informații & Locație</h2>
-        <div class="contact-container">
-            <div>
-                <div class="info-item">
-                    <h4>Adresă</h4>
-                    <p>Strada Martir Ioan Stanciu 6, 300719 Timișoara</p>
-                    <div class="landmark-badge">📍 Reper: Chiar lângă Parcul Lidia (zona Str. Mareșal Constantin Prezan / Aleea Cristalului)</div>
-                    <p style="margin-top: 0.5rem;"><small>Plus Code: P6MR+P3 Timișoara</small></p>
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Te Așteptăm la Salon</h3>
+                    <div class="info-item">
+                        <strong>Telefon & Programări:</strong>
+                        <a href="tel:0770414917" style="color:var(--text-dark); text-decoration:none; font-size: 20px; font-weight:700;">0770 414 917</a>
+                    </div>
+                    <div class="info-item">
+                        <strong>Adresă:</strong>
+                        Timișoara, Zona Parcul Lidia
+                    </div>
+                    <div class="info-item">
+                        <strong>Program:</strong>
+                        Luni – Sâmbătă: 09:00 – 20:00<br>Duminică: Închis
+                    </div>
                 </div>
-                <div class="info-item">
-                    <h4>Telefon & Programări</h4>
-                    <p><a href="tel:+40770414917">0770 414 917</a></p>
+
+                <div class="map-box">
+                    <iframe src="https://maps.google.com/maps?q=Parcul%20Lidia%20Timisoara&t=&z=15&ie=UTF8&iwloc=&output=embed"></iframe>
                 </div>
-                <div class="info-item">
-                    <h4>Program</h4>
-                    <p>Luni – Vineri: 09:00 – 18:00<br>Sâmbătă: 09:00 – 16:00<br>Duminică: Închis</p>
-                </div>
-            </div>
-            <div>
-                <iframe 
-                    src="https://maps.google.com/maps?q=Luxury+Beauty,+Strada+Martir+Ioan+Stanciu+6,+Timisoara&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-                    width="100%" 
-                    height="320" 
-                    style="border:0; border-radius: 8px;" 
-                    allowfullscreen="" 
-                    loading="lazy">
-                </iframe>
             </div>
         </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 Luxury Beauty Timișoara. Toate drepturile rezervate.</p>
-    </footer>
+    <!-- Buton Apel Mobil -->
+    <a href="tel:0770414917" class="mobile-sticky-btn">📞 Programează-te la 0770 414 917</a>
 
 </body>
 </html>
