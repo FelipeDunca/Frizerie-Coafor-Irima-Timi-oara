@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frizerie Coafor Irima | Timișoara</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@600;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary: #d4af37;
+            --primary-hover: #f0c85c;
+            --bg-body: #111113;
+            --bg-card: #1b1b1f;
+            --bg-card-alt: #232328;
+            --border: #2d2d35;
+            --text-main: #f5f5f7;
+            --text-muted: #a1a1a6;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-main);
+            line-height: 1.6;
+            padding-bottom: 70px;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Cormorant Garamond', serif;
+        }
+
+        header {
+            background-color: rgba(17, 17, 19, 0.92);
+            backdrop-filter: blur(10px);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            border-bottom: 1px solid var(--border);
+            padding: 15px 20px;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .logo span { color: var(--primary); font-weight: 400; }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-main);
+            font-size: 13px;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-links a:hover { color: var(--primary); }
+
+        .btn-header {
+            background: var(--primary);
+            color: #111113;
+            padding: 9px 20px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 13px;
+            transition: all 0.3s;
+        }
+
+        .btn-header:hover {
+            background: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Hero */
+        .hero {
+            padding: 170px 20px 90px;
+            text-align: center;
+            background: linear-gradient(180deg, rgba(17, 17, 19, 0.75) 0%, rgba(17, 17, 19, 0.95) 100%), 
+                        url('salon.jpg') center/cover no-repeat;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            background: rgba(17, 17, 19, 0.85);
+            color: var(--primary);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .hero h1 {
+            font-size: 46px;
+            color: #fff;
+            margin-bottom: 15px;
+            line-height: 1.2;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.7);
+        }
+
+        .hero p {
+            color: #e0e0e0;
+            font-size: 16px;
+            max-width: 650px;
+            margin: 0 auto 30px;
+            text-shadow: 0 1px 5px rgba(0,0,0,0.8);
+        }
+
+        .hero-actions {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+
+        /* Sections */
+        section { padding: 60px 20px; }
+        .container { max-width: 1100px; margin: 0 auto; }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-header h2 {
+            font-size: 36px;
+            color: #fff;
+        }
+
+        .section-header p {
+            color: var(--primary);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 12px;
+        }
+
+        /* About & Features */
+        .about-box {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            border-left: 5px solid var(--primary);
+            margin-bottom: 25px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 20px;
+        }
+
+        .feature-card {
+            background: var(--bg-card);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid var(--border);
+        }
+
+        /* Servicii */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .service-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .service-card h3 {
+            font-size: 26px;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .service-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 12px 0;
+            border-bottom: 1px dashed var(--border);
+            font-size: 14px;
+        }
+
+        /* Booking Form */
+        .booking-card {
+            background: var(--bg-card);
+            padding: 35px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+            text-align: left;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--primary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 13px 15px;
+            background-color: var(--bg-card-alt);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            color: var(--text-main);
+            font-size: 14px;
+            font-family: inherit;
+        }
+
+        .form-control:focus {
+            outline: none;
+            border-color: var(--primary);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .btn-submit {
+            width: 100%;
+            background: var(--primary);
+            color: #111113;
+            border: none;
+            padding: 15px;
+            border-radius: 30px;
+            font-size: 15px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .btn-submit:hover {
+            background-color: var(--primary-hover);
+            transform: translateY(-2px);
+        }
+
+        /* Recenzii */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+        }
+
+        .review-card {
+            background: var(--bg-card);
+            padding: 25px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--primary);
+        }
+
+        /* Contact & Map */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .info-card {
+            background: var(--bg-card);
+            padding: 30px;
+            border-radius: 16px;
+            border: 1px solid var(--border);
+        }
+
+        .schedule-table {
+            width: 100%;
+            font-size: 14px;
+            border-collapse: collapse;
+            margin-top: 5px;
+        }
+
+        .schedule-table td {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border);
+        }
+
+        .schedule-table td:last-child {
+            text-align: right;
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .map-box {
+            width: 100%;
+            height: 100%;
+            min-height: 320px;
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+        }
+
+        .map-box iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .mobile-sticky-btn {
+            display: none;
+            position: fixed;
+            bottom: 15px;
+            left: 15px;
+            right: 15px;
+            background: var(--primary);
+            color: #111113;
+            text-align: center;
+            padding: 14px;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 700;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6);
+            z-index: 999;
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 20px;
+            background: #09090b;
+            color: var(--text-muted);
+            font-size: 13px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Fixes Mobil */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .hero h1 { font-size: 32px; }
+            .mobile-sticky-btn { display: block; }
+            .form-row { grid-template-columns: 1fr; }
+            section { padding: 40px 15px; }
+            .contact-grid, .services-grid, .features-grid, .reviews-grid {
+                grid-template-columns: 1fr;
+            }
+            .map-box {
+                height: 280px;
+            }
+            .info-card, .service-card, .booking-card, .review-card, .about-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="nav-container">
+            <a href="#" class="logo">FRIZERIE COAFOR <span>IRIMA</span></a>
+            <ul class="nav-links">
+                <li><a href="#despre">Despre Noi</a></li>
+                <li><a href="#servicii">Servicii</a></li>
+                <li><a href="#rezervare">Programare</a></li>
+                <li><a href="#recenzii">Recenzii</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <a href="tel:0720060163" class="btn-header">📞 0720 060 163</a>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="badge">
+                <span>★ 4.2 / 5</span> • <span>53 Recenzii Google</span> • <span>👩 Proprietară Femeie</span>
+            </div>
+            <h1>Profesionalism, Pasiune și Stil</h1>
+            <p>Servicii premium de frizerie și coafură pe Str. Martir Ioan Stanciu nr. 8, Timișoara. Trimite programarea direct pe WhatsApp!</p>
+            <div class="hero-actions">
+                <a href="#rezervare" class="btn-header" style="font-size: 15px; padding: 12px 28px;">📅 Programare Online</a>
+                <a href="tel:0720060163" class="btn-header" style="background: rgba(17,17,19,0.8); color: var(--text-main); border: 1px solid var(--primary);">📞 Sună Direct</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 1. Despre Noi (Detalii sus) -->
+    <section id="despre">
+        <div class="container">
+            <div class="section-header">
+                <p>Atenție la detalii</p>
+                <h2>Experiență și Soluții Creative</h2>
+            </div>
+            <div class="about-box">
+                <p><strong>Frizerie Coafor Irima</strong> este un salon apreciat în Timișoara pentru atenția la detalii și atmosfera primitoare. Oferim servicii adaptate fiecărui client, valorificând trăsăturile faciale și respectând stilul personal.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div style="font-size:28px; margin-bottom:8px;">👩</div>
+                    <h4>Proprietară Femeie</h4>
+                    <p style="font-size:13px; color:var(--text-muted); margin-top:5px;">Salon coordonat cu atenție și dedicare.</p>
+                </div>
+                <div class="feature-card">
+                    <div style="font-size:28px; margin-bottom:8px;">⚡</div>
+                    <h4>Programare Rapidă</h4>
+                    <p style="font-size:13px; color:var(--text-muted); margin-top:5px;">Rezervări telefonice sau prin WhatsApp.</p>
+                </div>
+                <div class="feature-card">
+                    <div style="font-size:28px; margin-bottom:8px;">💳</div>
+                    <h4>Plăți Card & Contactless</h4>
+                    <p style="font-size:13px; color:var(--text-muted); margin-top:5px;">Acceptăm plăți mobile rapide NFC.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 2. Servicii & Tarife (Detalii sus) -->
+    <section id="servicii" style="background-color: #17171a;">
+        <div class="container">
+            <div class="section-header">
+                <p>Servicii Adaptate Fiecărui Client</p>
+                <h2>Frizerie & Coafor</h2>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <h3>Frizerie Bărbați & Copii</h3>
+                    <div class="service-item"><span>Tuns Clasic / Modern</span> <strong>Calitate</strong></div>
+                    <div class="service-item"><span>Tuns Copii (cu grijă)</span> <strong>Atent</strong></div>
+                    <div class="service-item"><span>Styling & Aranjat</span> <strong>Personalizat</strong></div>
+                </div>
+                <div class="service-card">
+                    <h3>Coafură & Hair Design</h3>
+                    <div class="service-item"><span>Tuns Damă & Aranjat</span> <strong>Adaptat</strong></div>
+                    <div class="service-item"><span>Coafat Ocazie / Bucle</span> <strong>Creativ</strong></div>
+                    <div class="service-item"><span>Vopsit & Schimbare Look</span> <strong>Profesional</strong></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Programare Rapidă (Mutată mai jos) -->
+    <section id="rezervare">
+        <div class="container">
+            <div class="section-header">
+                <p>Rapid & Simplu</p>
+                <h2>Rezervă o Programare</h2>
+            </div>
+
+            <div class="booking-card">
+                <form id="bookingForm" onsubmit="handleBooking(event)">
+                    <div class="form-group">
+                        <label for="nume">Nume și Prenume</label>
+                        <input type="text" id="nume" class="form-control" placeholder="Ex: Popescu Dan" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="telefon">Număr de Telefon</label>
+                        <input type="tel" id="telefon" class="form-control" placeholder="Ex: 0722 123 456" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="serviciu">Alege Serviciul</label>
+                        <select id="serviciu" class="form-control" required>
+                            <option value="Tuns Bărbați / Copii">Tuns Bărbați / Copii</option>
+                            <option value="Tuns & Stylat Damă">Tuns & Stylat Damă</option>
+                            <option value="Coafat Ocazie">Coafat Ocazie / Bucle</option>
+                            <option value="Vopsit & Schimbare Look">Vopsit & Schimbare Look</option>
+                            <option value="Alte Servicii">Alte Servicii</option>
+                        </select>
+                    </div>
+
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="data">Data Dorită</label>
+                            <input type="date" id="data" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="ora">Ora Dorită</label>
+                            <select id="ora" class="form-control" required>
+                                <option value="08:00">08:00</option>
+                                <option value="09:00">09:00</option>
+                                <option value="10:00">10:00</option>
+                                <option value="11:00">11:00</option>
+                                <option value="12:00">12:00</option>
+                                <option value="13:00">13:00</option>
+                                <option value="14:00">14:00</option>
+                                <option value="15:00">15:00</option>
+                                <option value="16:00">16:00</option>
+                                <option value="17:00">17:00</option>
+                                <option value="18:00">18:00</option>
+                                <option value="19:00">19:00</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-submit">💬 Trimite Programarea pe WhatsApp</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Recenzii -->
+    <section id="recenzii" style="background-color: #17171a;">
+        <div class="container">
+            <div class="section-header">
+                <p>Ce spun clienții noștri</p>
+                <h2>Păreri Google Maps (4.2★)</h2>
+            </div>
+            <div class="reviews-grid">
+                <div class="review-card">
+                    <div style="color:var(--primary); margin-bottom:8px;">★★★★★</div>
+                    <p style="font-size:13px; color:var(--text-main); font-style:italic;">„Servicii excelente! Atmosferă plăcută și atenție deosebită acordată dorințelor clientului.”</p>
+                    <span style="font-size:12px; color:var(--text-muted); display:block; margin-top:10px; font-weight:600;">— Client Google</span>
+                </div>
+                <div class="review-card">
+                    <div style="color:var(--primary); margin-bottom:8px;">★★★★★</div>
+                    <p style="font-size:13px; color:var(--text-main); font-style:italic;">„O frizerie de cartier impecabilă. Personal profesionist și foarte amabil.”</p>
+                    <span style="font-size:12px; color:var(--text-muted); display:block; margin-top:10px; font-weight:600;">— Client Fidel</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Contact & Orar -->
+    <section id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="info-card">
+                    <h3 style="font-size:24px; color:var(--primary); margin-bottom:15px;">Contact & Program</h3>
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color:var(--primary); font-size:12px; text-transform:uppercase;">Telefon:</strong><br>
+                        <a href="tel:0720060163" style="color:var(--primary); text-decoration:none; font-size: 22px; font-weight:700;">0720 060 163</a>
+                    </div>
+                    <div style="margin-bottom: 15px;">
+                        <strong style="color:var(--primary); font-size:12px; text-transform:uppercase;">Adresă:</strong>
+                        <p style="font-size:14px;">Strada Martir Ioan Stanciu nr. 8, Bl. 8, Timișoara</p>
+                    </div>
+                    <div>
+                        <strong style="color:var(--primary); font-size:12px; text-transform:uppercase;">Program de Lucru:</strong>
+                        <table class="schedule-table">
+                            <tr><td>Luni – Vineri</td><td>08:00 – 20:00</td></tr>
+                            <tr><td>Sâmbătă</td><td>08:00 – 15:00</td></tr>
+                            <tr><td>Duminică</td><td>Închis</td></tr>
+                        </table>
+                    </div>
+                </div>
+                <div class="map-box">
+                    <iframe src="https://maps.google.com/maps?q=Strada%20Martir%20Ioan%20Stanciu%208,%20Timisoara&t=&z=16&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2026 Frizerie Coafor Irima Timișoara. Toate drepturile rezervate.</p>
+    </footer>
+
+    <a href="#rezervare" class="mobile-sticky-btn">📅 Programează-te Rapid</a>
+
+    <script>
+        const dateInput = document.getElementById('data');
+        const oraSelect = document.getElementById('ora');
+
+        dateInput.min = new Date().toISOString().split('T')[0];
+
+        dateInput.addEventListener('change', function() {
+            const selectedDate = new Date(this.value);
+            const day = selectedDate.getDay(); // 0 = Duminică, 6 = Sâmbătă
+
+            oraSelect.innerHTML = '';
+
+            if (day === 0) {
+                alert('Duminică salonul este închis! Vă rugăm să alegeți o zi de Luni până Sâmbătă.');
+                this.value = '';
+                return;
+            }
+
+            // Sambata pana la 15:00 (ultima ora 14:00), Luni-Vineri pana la 20:00 (ultima ora 19:00)
+            const maxHour = (day === 6) ? 14 : 19;
+
+            for (let h = 8; h <= maxHour; h++) {
+                let hourStr = h < 10 ? '0' + h + ':00' : h + ':00';
+                let option = document.createElement('option');
+                option.value = hourStr;
+                option.textContent = hourStr;
+                oraSelect.appendChild(option);
+            }
+        });
+
+        function handleBooking(e) {
+            e.preventDefault();
+            const nume = document.getElementById('nume').value;
+            const tel = document.getElementById('telefon').value;
+            const serviciu = document.getElementById('serviciu').value;
+            const data = document.getElementById('data').value;
+            const ora = document.getElementById('ora').value;
+
+            const text = `Bună ziua! Doresc o programare la Frizerie Coafor Irima:%0A• Nume: ${encodeURIComponent(nume)}%0A• Telefon: ${encodeURIComponent(tel)}%0A• Serviciu: ${encodeURIComponent(serviciu)}%0A• Data: ${encodeURIComponent(data)}%0A• Ora: ${encodeURIComponent(ora)}`;
+
+            window.open(`https://wa.me/40720060163?text=${text}`, '_blank');
+        }
+    </script>
+</body>
+</html>
