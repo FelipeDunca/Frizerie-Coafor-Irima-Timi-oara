@@ -37,16 +37,14 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    html {
-      scroll-behavior: smooth;
-    }
+    html { scroll-behavior: smooth; }
 
     body {
       background-color: var(--bg-dark);
       color: var(--text-light);
       line-height: 1.6;
       overflow-x: hidden;
-      padding-bottom: 70px; /* Spațiu pentru bara fixă de jos pe mobil */
+      padding-bottom: 70px;
     }
 
     @media (min-width: 769px) {
@@ -76,9 +74,7 @@
       text-transform: uppercase;
     }
 
-    .brand-logo span {
-      color: var(--gold-primary);
-    }
+    .brand-logo span { color: var(--gold-primary); }
 
     nav ul {
       display: flex;
@@ -94,9 +90,7 @@
       transition: all 0.3s ease;
     }
 
-    nav a:hover, nav a.active {
-      color: var(--gold-primary);
-    }
+    nav a:hover, nav a.active { color: var(--gold-primary); }
 
     .nav-actions {
       display: flex;
@@ -154,9 +148,7 @@
       min-height: 48px;
     }
 
-    .btn-gold:active {
-      transform: scale(0.98);
-    }
+    .btn-gold:active { transform: scale(0.98); }
 
     .btn-outline {
       background: rgba(255, 255, 255, 0.03);
@@ -242,7 +234,7 @@
       flex-wrap: wrap;
     }
 
-    /* --- Sticky Bottom Bar (Mobil Exclusiv) --- */
+    /* --- Mobile Sticky Bar --- */
     .mobile-sticky-bar {
       display: none;
       position: fixed;
@@ -365,14 +357,8 @@
       font-size: 0.9rem;
     }
 
-    .service-item:last-child {
-      border-bottom: none;
-    }
-
-    .service-price {
-      color: var(--gold-primary);
-      font-weight: 700;
-    }
+    .service-item:last-child { border-bottom: none; }
+    .service-price { color: var(--gold-primary); font-weight: 700; }
 
     /* --- Google Maps --- */
     .map-container {
@@ -400,9 +386,7 @@
       box-shadow: var(--gold-glow);
     }
 
-    .form-group {
-      margin-bottom: 1.2rem;
-    }
+    .form-group { margin-bottom: 1.2rem; }
 
     .form-group label {
       display: block;
@@ -413,7 +397,6 @@
       letter-spacing: 1px;
     }
 
-    /* iOS Auto-Zoom Fix: font-size 16px minim */
     .form-group input, .form-group select {
       width: 100%;
       padding: 0.8rem 0.9rem;
@@ -443,14 +426,8 @@
     }
 
     /* --- Admin Panel --- */
-    .admin-panel {
-      display: none;
-      padding: 2rem 0;
-    }
-
-    .admin-panel.active {
-      display: block;
-    }
+    .admin-panel { display: none; padding: 2rem 0; }
+    .admin-panel.active { display: block; }
 
     .admin-stats {
       display: grid;
@@ -564,12 +541,11 @@
       font-size: 0.8rem;
     }
 
-    /* --- Media Queries Mobil --- */
     @media (max-width: 768px) {
       .mobile-menu-btn { display: block; }
       .mobile-sticky-bar { display: flex; }
 
-      header .btn-gold { display: none; } /* Ascuns din header, mutat în bara fixă jos */
+      header .btn-gold { display: none; }
 
       nav ul {
         display: none;
@@ -586,25 +562,11 @@
         box-shadow: 0 10px 25px rgba(0,0,0,0.5);
       }
 
-      nav ul.mobile-open {
-        display: flex;
-      }
+      nav ul.mobile-open { display: flex; }
+      .form-row { grid-template-columns: 1fr; }
+      .hero-buttons { flex-direction: column; width: 100%; }
+      .hero-buttons .btn-gold, .hero-buttons .btn-outline { width: 100%; }
 
-      .form-row {
-        grid-template-columns: 1fr;
-      }
-
-      .hero-buttons {
-        flex-direction: column;
-        width: 100%;
-      }
-
-      .hero-buttons .btn-gold, 
-      .hero-buttons .btn-outline {
-        width: 100%;
-      }
-
-      /* Transformare Tabel Admin în Carduri pe ecran mic */
       .table-container table, 
       .table-container thead, 
       .table-container tbody, 
@@ -647,73 +609,6 @@
     }
   </style>
 </head>
-<!-- SDK-uri Firebase compatibile HTML/JS -->
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
-
-<script>
-  // Configurația ta extrasă din ecran
-  const firebaseConfig = {
-    apiKey: "AIzaSyAZBkd0jxgtXB8z0YvLyvAI4v-5JnwnzaQ",
-    authDomain: "frizerie-irima.firebaseapp.com",
-    projectId: "frizerie-irima",
-    storageBucket: "frizerie-irima.firebasestorage.app",
-    messagingSenderId: "310555068582",
-    appId: "1:310555068582:web:f5c870719f8b3fb0594c67",
-    measurementId: "G-19DMQFZFJ1"
-  };
-
-  // Inițializare Firebase & Firestore
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
-
-  // Sincronizare în timp real cu panoul și formularul
-  db.collection("appointments").onSnapshot((snapshot) => {
-    appointments = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
-    if (typeof updateAvailableTimeSlots === 'function') updateAvailableTimeSlots();
-    if (isAdminLoggedIn && typeof renderAdminPanel === 'function') renderAdminPanel();
-  });
-
-  // Salvare programare în Firebase
-  async function saveAppointment(e) {
-    e.preventDefault();
-    
-    const newAppt = {
-      name: document.getElementById('clientName').value.trim(),
-      phone: document.getElementById('clientPhone').value.trim(),
-      service: document.getElementById('clientService').value,
-      date: document.getElementById('clientDate').value,
-      time: document.getElementById('clientTime').value,
-      status: "Pending",
-      createdAt: firebase.firestore.FieldValue.serverTimestamp()
-    };
-
-    try {
-      await db.collection("appointments").add(newAppt);
-      document.getElementById('appointmentForm').reset();
-      document.getElementById('clientTime').disabled = true;
-      
-      const alertBox = document.getElementById('bookingAlert');
-      alertBox.style.display = 'block';
-      alertBox.style.color = 'var(--success)';
-      alertBox.innerHTML = `<i class="fas fa-check-circle"></i> Programare trimisă cu succes!`;
-    } catch (error) {
-      alert("Eroare la salvare: " + error.message);
-    }
-  }
-
-  // Schimbare Status
-  function changeStatus(id, newStatus) {
-    db.collection("appointments").doc(id).update({ status: newStatus });
-  }
-
-  // Ștergere Programare
-  function deleteAppointment(id) {
-    if (confirm('Sigur dorești să ștergi această programare?')) {
-      db.collection("appointments").doc(id).delete();
-    }
-  }
-</script>
 <body>
 
   <!-- Navigation -->
@@ -743,16 +638,15 @@
     </div>
   </header>
 
-  <!-- Bară Fixă Jos (Mobil Exclusiv) -->
+  <!-- Mobile Sticky Bottom Bar -->
   <div class="mobile-sticky-bar">
     <a href="tel:0720060163" class="sticky-btn btn-outline"><i class="fas fa-phone-alt"></i> Sună Direct</a>
     <a href="#booking" class="sticky-btn btn-gold"><i class="fas fa-calendar-alt"></i> Programare</a>
   </div>
 
-  <!-- ================= CLIENT VIEW ================= -->
+  <!-- CLIENT VIEW -->
   <div id="clientView">
     
-    <!-- Hero Section -->
     <section class="hero" id="home">
       <div class="subtitle-badge">Atenție la Detalii</div>
       
@@ -765,7 +659,6 @@
       </div>
 
       <h1>Profesionalism, Pasiune și Stil</h1>
-      
       <p>Servicii premium pe Str. Martir Ioan Stanciu nr. 8, Timișoara. Programează-te în doar 1 minut!</p>
 
       <div class="hero-buttons">
@@ -774,7 +667,6 @@
       </div>
     </section>
 
-    <!-- About Us Section -->
     <section class="container" id="about">
       <div class="section-title">
         <div class="subtitle-badge">Cine Suntem</div>
@@ -787,7 +679,6 @@
       </div>
     </section>
 
-    <!-- Features Section -->
     <section class="container" id="features">
       <div class="section-title">
         <div class="subtitle-badge">Facilități</div>
@@ -821,7 +712,6 @@
       </div>
     </section>
 
-    <!-- Services Section -->
     <section class="container" id="services">
       <div class="section-title">
         <div class="subtitle-badge">Listă Prețuri</div>
@@ -855,17 +745,17 @@
 
         <form id="appointmentForm" onsubmit="saveAppointment(event)">
           <div class="form-group">
-            <label>Nume & Prenume</label>
+            <label for="clientName">Nume & Prenume</label>
             <input type="text" id="clientName" required placeholder="Ex. Maria Popescu">
           </div>
 
           <div class="form-group">
-            <label>Număr Telefon</label>
+            <label for="clientPhone">Număr Telefon</label>
             <input type="tel" id="clientPhone" required placeholder="Ex. 0720 000 000">
           </div>
 
           <div class="form-group">
-            <label>Serviciu Dorit</label>
+            <label for="clientService">Serviciu Dorit</label>
             <select id="clientService" required>
               <option value="">Alege serviciul...</option>
               <option value="Frizerie Bărbați">Frizerie Bărbați</option>
@@ -876,12 +766,12 @@
 
           <div class="form-row">
             <div class="form-group">
-              <label>Data Programării</label>
+              <label for="clientDate">Data Programării</label>
               <input type="date" id="clientDate" required onchange="updateAvailableTimeSlots()">
             </div>
 
             <div class="form-group">
-              <label>Ora (Din 30 în 30 min)</label>
+              <label for="clientTime">Ora (Din 30 în 30 min)</label>
               <select id="clientTime" required disabled>
                 <option value="">Alege data mai întâi...</option>
               </select>
@@ -897,7 +787,7 @@
       </div>
     </section>
 
-    <!-- Contact & Hours & Google Maps Section -->
+    <!-- Contact & Location -->
     <section class="container" id="contact">
       <div class="section-title">
         <div class="subtitle-badge">Ne Găsești Ușor</div>
@@ -920,7 +810,6 @@
         </div>
       </div>
 
-      <!-- Google Maps Embed -->
       <div class="map-container">
         <iframe 
           src="https://maps.google.com/maps?q=Strada%20Martir%20Ioan%20Stanciu%20nr.%208,%20Timi%C8%99oara&t=&z=16&ie=UTF8&iwloc=&output=embed" 
@@ -933,14 +822,13 @@
 
   </div>
 
-  <!-- ================= ADMIN VIEW ================= -->
+  <!-- ADMIN VIEW -->
   <div id="adminView" class="admin-panel container">
     <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.5rem; flex-wrap:wrap; gap:1rem;">
       <h2 style="font-family: 'Playfair Display', serif; color: var(--gold-primary); font-size:1.5rem;">Panou Administrare Salon</h2>
       <button onclick="logoutAdmin()" class="btn-outline" style="padding:0.4rem 0.9rem; font-size:0.8rem; min-height:36px;"><i class="fas fa-sign-out-alt"></i> Deconectare</button>
     </div>
 
-    <!-- Stats -->
     <div class="admin-stats">
       <div class="stat-card">
         <h4 id="statTotal">0</h4>
@@ -956,7 +844,6 @@
       </div>
     </div>
 
-    <!-- Admin Settings Grid -->
     <div style="margin-bottom: 1.5rem;">
       <div class="card">
         <h3><i class="fas fa-calendar-minus"></i> Zile Libere / Concediu</h3>
@@ -971,7 +858,6 @@
       </div>
     </div>
 
-    <!-- Appointments Table -->
     <div class="card" style="padding: 1rem; overflow: hidden;">
       <h3 style="margin-bottom: 1rem;"><i class="fas fa-list-ul"></i> Lista Programărilor</h3>
       <div class="table-container" style="border: none; border-radius: 0;">
@@ -1015,37 +901,58 @@
     <p>&copy; 2026 Frizerie Coafor Irima. Str. Martir Ioan Stanciu nr. 8, Timișoara.</p>
   </footer>
 
+  <!-- Firebase SDKs -->
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore-compat.js"></script>
+
+  <!-- LOGICĂ UNIFICATĂ SCRIPT -->
   <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAZBkd0jxgtXB8z0YvLyvAI4v-5JnwnzaQ",
+      authDomain: "frizerie-irima.firebaseapp.com",
+      projectId: "frizerie-irima",
+      storageBucket: "frizerie-irima.firebasestorage.app",
+      messagingSenderId: "310555068582",
+      appId: "1:310555068582:web:f5c870719f8b3fb0594c67",
+      measurementId: "G-19DMQFZFJ1"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+
+    let appointments = [];
+    let blockedDates = [];
+    const currentAdminPass = 'Admin Irima';
+    let isAdminLoggedIn = false;
+
     document.addEventListener("DOMContentLoaded", () => {
       const today = new Date().toISOString().split('T')[0];
       document.getElementById('clientDate').setAttribute('min', today);
     });
 
-    let appointments = JSON.parse(localStorage.getItem('irima_appts')) || [
-      { id: 1, name: "Maria Popescu", phone: "0720111222", service: "Coafură / Tunsoare Damă", date: "2026-09-10", time: "14:00", status: "Confirmed" },
-      { id: 2, name: "Ioan Radu", phone: "0720333444", service: "Frizerie Bărbați", date: "2026-09-10", time: "15:30", status: "Pending" }
-    ];
+    // Ascultă modificările din Firebase în timp real
+    db.collection("appointments").onSnapshot((snapshot) => {
+      appointments = snapshot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
+      updateAvailableTimeSlots();
+      if (isAdminLoggedIn) renderAdminPanel();
+    });
 
-    let blockedDates = JSON.parse(localStorage.getItem('irima_blocked_dates')) || ["2026-12-25", "2026-01-01"];
-    const currentAdminPass = 'Admin Irima';
-    let isAdminLoggedIn = false;
+    db.collection("blockedDates").onSnapshot((snapshot) => {
+      blockedDates = snapshot.docs.map(doc => doc.data().date);
+      updateAvailableTimeSlots();
+      if (isAdminLoggedIn) renderBlockedDates();
+    });
 
     function toggleMobileMenu() {
       const menu = document.getElementById('navMenu');
       const icon = document.getElementById('menuIcon');
       menu.classList.toggle('mobile-open');
-      if(menu.classList.contains('mobile-open')) {
-        icon.className = 'fas fa-times';
-      } else {
-        icon.className = 'fas fa-bars';
-      }
+      icon.className = menu.classList.contains('mobile-open') ? 'fas fa-times' : 'fas fa-bars';
     }
 
     function closeMobileMenu() {
-      const menu = document.getElementById('navMenu');
-      const icon = document.getElementById('menuIcon');
-      menu.classList.remove('mobile-open');
-      icon.className = 'fas fa-bars';
+      document.getElementById('navMenu').classList.remove('mobile-open');
+      document.getElementById('menuIcon').className = 'fas fa-bars';
     }
 
     function generateTimeSlots(startHour, endHour) {
@@ -1143,17 +1050,17 @@
       });
     }
 
-    function saveAppointment(e) {
+    async function saveAppointment(e) {
       e.preventDefault();
       
       const newAppt = {
-        id: Date.now(),
         name: document.getElementById('clientName').value.trim(),
         phone: document.getElementById('clientPhone').value.trim(),
         service: document.getElementById('clientService').value,
         date: document.getElementById('clientDate').value,
         time: document.getElementById('clientTime').value,
-        status: "Pending"
+        status: "Pending",
+        createdAt: firebase.firestore.FieldValue.serverTimestamp()
       };
 
       if (!newAppt.time) {
@@ -1161,19 +1068,19 @@
         return;
       }
 
-      appointments.push(newAppt);
-      localStorage.setItem('irima_appts', JSON.stringify(appointments));
+      try {
+        await db.collection("appointments").add(newAppt);
+        document.getElementById('appointmentForm').reset();
+        document.getElementById('clientTime').disabled = true;
+        document.getElementById('clientTime').innerHTML = '<option value="">Alege data mai întâi...</option>';
 
-      document.getElementById('appointmentForm').reset();
-      document.getElementById('clientTime').disabled = true;
-      document.getElementById('clientTime').innerHTML = '<option value="">Alege data mai întâi...</option>';
-
-      const alertBox = document.getElementById('bookingAlert');
-      alertBox.style.display = 'block';
-      alertBox.style.color = 'var(--success)';
-      alertBox.innerHTML = `<i class="fas fa-check-circle"></i> Programare trimisă cu succes pentru ${newAppt.date} ora ${newAppt.time}! Te vom contacta curând.`;
-
-      if (isAdminLoggedIn) renderAdminPanel();
+        const alertBox = document.getElementById('bookingAlert');
+        alertBox.style.display = 'block';
+        alertBox.style.color = 'var(--success)';
+        alertBox.innerHTML = `<i class="fas fa-check-circle"></i> Programare trimisă cu succes pentru ${newAppt.date} ora ${newAppt.time}! Te vom contacta curând.`;
+      } catch (error) {
+        alert("Eroare la trimiterea programării: " + error.message);
+      }
     }
 
     function handleAdminToggle() {
@@ -1239,7 +1146,7 @@
       appointments.forEach(a => {
         const tr = document.createElement('tr');
         
-        const cleanPhone = a.phone.replace(/[^0-9]/g, '');
+        const cleanPhone = a.phone ? a.phone.replace(/[^0-9]/g, '') : '';
         const formattedPhoneForWhatsApp = cleanPhone.startsWith('0') ? '4' + cleanPhone : cleanPhone;
         
         const textMsg = `Buna ziua ${a.name}, va confirmam programarea la Frizerie Coafor Irima pentru ${a.service} in data de ${a.date} ora ${a.time}. Va asteptam!`;
@@ -1253,9 +1160,9 @@
           <td data-label="Data & Ora"><span style="color:var(--gold-primary);">${a.date}</span> @ <strong>${a.time}</strong></td>
           <td data-label="Status"><span class="status-badge status-${a.status}">${a.status}</span></td>
           <td data-label="Acțiuni">
-            <button onclick="changeStatus(${a.id}, 'Confirmed')" class="action-btn" title="Confirmă" style="color:var(--success);"><i class="fas fa-check-circle"></i></button>
-            <button onclick="changeStatus(${a.id}, 'Cancelled')" class="action-btn" title="Anulează" style="color:var(--danger);"><i class="fas fa-times-circle"></i></button>
-            <button onclick="deleteAppointment(${a.id})" class="action-btn" title="Șterge"><i class="fas fa-trash"></i></button>
+            <button onclick="changeStatus('${a.id}', 'Confirmed')" class="action-btn" title="Confirmă" style="color:var(--success);"><i class="fas fa-check-circle"></i></button>
+            <button onclick="changeStatus('${a.id}', 'Cancelled')" class="action-btn" title="Anulează" style="color:var(--danger);"><i class="fas fa-times-circle"></i></button>
+            <button onclick="deleteAppointment('${a.id}')" class="action-btn" title="Șterge"><i class="fas fa-trash"></i></button>
             <a href="${waLink}" target="_blank" class="action-btn" title="WhatsApp" style="color:var(--whatsapp);"><i class="fab fa-whatsapp"></i></a>
             <a href="${smsLink}" class="action-btn" title="SMS" style="color:var(--sms);"><i class="fas fa-comment-alt"></i></a>
           </td>
@@ -1267,16 +1174,12 @@
     }
 
     function changeStatus(id, newStatus) {
-      appointments = appointments.map(a => a.id === id ? { ...a, status: newStatus } : a);
-      localStorage.setItem('irima_appts', JSON.stringify(appointments));
-      renderAdminPanel();
+      db.collection("appointments").doc(id).update({ status: newStatus });
     }
 
     function deleteAppointment(id) {
       if (confirm('Sigur dorești să ștergi această programare?')) {
-        appointments = appointments.filter(a => a.id !== id);
-        localStorage.setItem('irima_appts', JSON.stringify(appointments));
-        renderAdminPanel();
+        db.collection("appointments").doc(id).delete();
       }
     }
 
@@ -1297,7 +1200,7 @@
       });
     }
 
-    function addBlockedDate() {
+    async function addBlockedDate() {
       const dateInput = document.getElementById('newBlockedDate');
       const val = dateInput.value;
 
@@ -1311,18 +1214,21 @@
         return;
       }
 
-      blockedDates.push(val);
-      localStorage.setItem('irima_blocked_dates', JSON.stringify(blockedDates));
-      dateInput.value = '';
-      renderBlockedDates();
+      try {
+        await db.collection("blockedDates").doc(val).set({ date: val });
+        dateInput.value = '';
+      } catch (err) {
+        alert("Eroare la salvarea zilei blocate: " + err.message);
+      }
     }
 
-    function removeBlockedDate(date) {
-      blockedDates = blockedDates.filter(d => d !== date);
-      localStorage.setItem('irima_blocked_dates', JSON.stringify(blockedDates));
-      renderBlockedDates();
+    async function removeBlockedDate(date) {
+      try {
+        await db.collection("blockedDates").doc(date).delete();
+      } catch (err) {
+        alert("Eroare la ștergerea zilei blocate: " + err.message);
+      }
     }
   </script>
-
 </body>
 </html>
