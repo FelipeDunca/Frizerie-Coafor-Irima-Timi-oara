@@ -1,0 +1,1133 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Frizerie Coafor Irima | Timișoara</title>
+  
+  <!-- Fonturi Premium & Icons -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;700&family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <style>
+    :root {
+      --bg-dark: #0f0f12;
+      --bg-card: #18181c;
+      --bg-card-hover: #222228;
+      --gold-primary: #c5a059;
+      --gold-gradient: linear-gradient(135deg, #e5c378 0%, #c5a059 50%, #9a7b38 100%);
+      --gold-glow: 0 0 25px rgba(197, 160, 89, 0.25);
+      --text-light: #f3f3f5;
+      --text-muted: #9a9ab0;
+      --border-gold: rgba(197, 160, 89, 0.3);
+      --border-subtle: rgba(255, 255, 255, 0.08);
+      --danger: #e74c3c;
+      --success: #2ecc71;
+      --whatsapp: #25D366;
+      --sms: #3498db;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* --- Navigation Bar --- */
+    header {
+      background: rgba(15, 15, 18, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border-subtle);
+      padding: 1.2rem 4%;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-logo {
+      font-family: 'Cinzel', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      color: #fff;
+      text-transform: uppercase;
+    }
+
+    .brand-logo span {
+      color: var(--gold-primary);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 0.9rem;
+      font-weight: 500;
+      transition: all 0.3s ease;
+    }
+
+    nav a:hover, nav a.active {
+      color: var(--gold-primary);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .btn-mode-switch {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid var(--border-gold);
+      color: var(--gold-primary);
+      padding: 0.5rem 1rem;
+      border-radius: 30px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-mode-switch:hover {
+      background: var(--gold-primary);
+      color: #000;
+    }
+
+    /* --- Buttons --- */
+    .btn-gold {
+      background: var(--gold-gradient);
+      color: #000;
+      font-weight: 700;
+      padding: 0.85rem 1.8rem;
+      border-radius: 30px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      box-shadow: var(--gold-glow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-gold:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 35px rgba(197, 160, 89, 0.4);
+    }
+
+    .btn-outline {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid var(--border-subtle);
+      color: #fff;
+      font-weight: 600;
+      padding: 0.85rem 1.8rem;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .btn-outline:hover {
+      border-color: var(--gold-primary);
+      color: var(--gold-primary);
+    }
+
+    /* --- Hero Section cu Poza salon.jpg pe Fundal --- */
+    .hero {
+      position: relative;
+      padding: 6rem 4% 5rem 4%;
+      text-align: center;
+      background: linear-gradient(rgba(15, 15, 18, 0.82), rgba(15, 15, 18, 0.92)), url('salon.jpg') no-repeat center center/cover;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .subtitle-badge {
+      font-size: 0.75rem;
+      letter-spacing: 3px;
+      color: var(--gold-primary);
+      text-transform: uppercase;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .info-badges {
+      display: inline-flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+      background: rgba(24, 24, 28, 0.85);
+      border: 1px solid var(--border-gold);
+      padding: 0.5rem 1.2rem;
+      border-radius: 50px;
+      margin-bottom: 2rem;
+      font-size: 0.85rem;
+      backdrop-filter: blur(4px);
+    }
+
+    .info-badges span {
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2.5rem, 5vw, 4.2rem);
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .hero p {
+      max-width: 650px;
+      margin: 0 auto 2.5rem auto;
+      color: var(--text-muted);
+      font-size: 1.05rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    /* --- Container & Grids --- */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    .section-title {
+      text-align: center;
+      margin: 4.5rem 0 2.5rem 0;
+    }
+
+    .section-title h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      color: #fff;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 2rem;
+    }
+
+    .grid-4 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 14px;
+      padding: 2rem;
+      transition: all 0.3s ease;
+    }
+
+    .card:hover {
+      border-color: var(--border-gold);
+      transform: translateY(-4px);
+    }
+
+    .card h3 {
+      font-family: 'Playfair Display', serif;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+      font-size: 1.3rem;
+    }
+
+    .about-box {
+      background: linear-gradient(145deg, rgba(24, 24, 28, 0.9), rgba(15, 15, 18, 0.9));
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 2.5rem;
+      position: relative;
+    }
+
+    .about-box p {
+      color: var(--text-light);
+      font-size: 1.05rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.7;
+    }
+
+    .feature-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+      padding: 1.5rem;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .feature-card:hover {
+      border-color: var(--gold-primary);
+      box-shadow: var(--gold-glow);
+    }
+
+    .feature-card i {
+      font-size: 2rem;
+      color: var(--gold-primary);
+      margin-bottom: 1rem;
+      display: block;
+      line-height: 1;
+    }
+
+    .feature-card h4 {
+      color: #fff;
+      font-size: 1.05rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .feature-card p {
+      color: var(--text-muted);
+      font-size: 0.85rem;
+    }
+
+    .service-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    .service-item:last-child {
+      border-bottom: none;
+    }
+
+    .service-price {
+      color: var(--gold-primary);
+      font-weight: 700;
+    }
+
+    /* --- Google Maps Container --- */
+    .map-container {
+      margin-top: 2.5rem;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--border-gold);
+      box-shadow: var(--gold-glow);
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 380px;
+      border: 0;
+      filter: grayscale(25%) invert(90%) hue-rotate(180deg) contrast(1.2);
+    }
+
+    /* --- Booking Form --- */
+    .booking-card {
+      max-width: 600px;
+      margin: 3rem auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 2.5rem;
+      box-shadow: var(--gold-glow);
+    }
+
+    .form-group {
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .form-group input, .form-group select {
+      width: 100%;
+      padding: 0.9rem;
+      background: #0f0f12;
+      border: 1px solid var(--border-subtle);
+      border-radius: 8px;
+      color: #fff;
+      font-size: 1rem;
+      color-scheme: dark;
+    }
+
+    input[type="date"]::-webkit-calendar-picker-indicator {
+      filter: invert(0.8) sepia(1) saturate(5) hue-rotate(5deg);
+      cursor: pointer;
+      opacity: 0.9;
+    }
+
+    .form-group input:focus, .form-group select:focus {
+      outline: none;
+      border-color: var(--gold-primary);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+    }
+
+    /* --- Admin Panel --- */
+    .admin-panel {
+      display: none;
+      padding: 3rem 0;
+    }
+
+    .admin-panel.active {
+      display: block;
+    }
+
+    .admin-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .admin-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .stat-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 10px;
+      padding: 1.5rem;
+      text-align: center;
+    }
+
+    .stat-card h4 {
+      color: var(--gold-primary);
+      font-size: 2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .table-container {
+      overflow-x: auto;
+      background: var(--bg-card);
+      border: 1px solid var(--border-subtle);
+      border-radius: 12px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+
+    th, td {
+      padding: 1.2rem;
+      border-bottom: 1px solid var(--border-subtle);
+    }
+
+    th {
+      background: rgba(255, 255, 255, 0.02);
+      color: var(--gold-primary);
+      font-size: 0.85rem;
+      text-transform: uppercase;
+    }
+
+    .status-badge {
+      padding: 0.3rem 0.8rem;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 700;
+    }
+
+    .status-Pending { background: rgba(241, 196, 15, 0.15); color: #f1c40f; }
+    .status-Confirmed { background: rgba(46, 204, 113, 0.15); color: #2ecc71; }
+    .status-Cancelled { background: rgba(231, 76, 60, 0.15); color: #e74c3c; }
+
+    .action-btn {
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      font-size: 1.1rem;
+      cursor: pointer;
+      margin-right: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .action-btn:hover { color: var(--gold-primary); }
+
+    .off-day-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(231, 76, 60, 0.15);
+      border: 1px solid rgba(231, 76, 60, 0.4);
+      color: #f5b7b1;
+      padding: 0.4rem 0.8rem;
+      border-radius: 20px;
+      margin: 0.3rem;
+      font-size: 0.85rem;
+    }
+
+    .off-day-chip i {
+      cursor: pointer;
+      color: var(--danger);
+    }
+
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0, 0, 0, 0.85);
+      backdrop-filter: blur(8px);
+      z-index: 2000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-gold);
+      border-radius: 16px;
+      padding: 2.5rem;
+      width: 90%;
+      max-width: 400px;
+      box-shadow: var(--gold-glow);
+      text-align: center;
+    }
+
+    footer {
+      border-top: 1px solid var(--border-subtle);
+      padding: 3rem 4%;
+      text-align: center;
+      color: var(--text-muted);
+      margin-top: 5rem;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      nav ul { display: none; }
+      .hero h1 { font-size: 2.2rem; }
+      .form-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navigation -->
+  <header>
+    <div class="brand-logo">Frizerie Coafor <span>I</span>rima</div>
+    <nav>
+      <ul>
+        <li><a href="#about">Despre Noi</a></li>
+        <li><a href="#features">Dotări</a></li>
+        <li><a href="#services">Servicii</a></li>
+        <li><a href="#booking">Programare</a></li>
+        <li><a href="#contact">Contact & Locație</a></li>
+      </ul>
+    </nav>
+    <div class="nav-actions">
+      <button class="btn-mode-switch" onclick="handleAdminToggle()" id="modeToggleBtn">
+        <i class="fas fa-lock"></i> Panou Admin
+      </button>
+      <a href="tel:0720060163" class="btn-gold" style="padding: 0.5rem 1.2rem; font-size: 0.8rem;">
+        <i class="fas fa-phone"></i> 0720 060 163
+      </a>
+    </div>
+  </header>
+
+  <!-- ================= CLIENT VIEW ================= -->
+  <div id="clientView">
+    
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+      <div class="subtitle-badge">Atenție la Detalii</div>
+      
+      <div class="info-badges">
+        <span><i class="fas fa-star" style="color: var(--gold-primary);"></i> 4.2 / 5 (53 Recenzii Google)</span>
+        <span>•</span>
+        <span><i class="fas fa-award" style="color: var(--gold-primary);"></i> Top Saloane Timișoara</span>
+        <span>•</span>
+        <span><i class="fas fa-female" style="color: var(--gold-primary);"></i> Afacere Deținută de o Femeie</span>
+      </div>
+
+      <h1>Profesionalism, Pasiune și Stil</h1>
+      
+      <p>Servicii premium de frizerie și coafură pe Str. Martir Ioan Stanciu nr. 8, Timișoara.<br>
+      Alege serviciul dorit și programează-te online în doar 1 minut!</p>
+
+      <div class="hero-buttons">
+        <a href="#booking" class="btn-gold"><i class="fas fa-calendar-alt"></i> Programare Online</a>
+        <a href="tel:0720060163" class="btn-outline"><i class="fas fa-phone-alt"></i> Sună Direct</a>
+      </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="container" id="about">
+      <div class="section-title">
+        <div class="subtitle-badge">Cine Suntem</div>
+        <h2>Despre Frizerie Coafor Irima</h2>
+      </div>
+
+      <div class="about-box">
+        <p><strong>Frizerie Coafor Irima</strong>, situată în Timișoara, este un salon de coafură apreciat pentru abilitatea profesională a personalului său. Muncind cu atenție și pasiune, specialiștii noștri oferă servicii adaptate fiecărui client, respectând ideile acestuia și valorificând trăsăturile faciale pentru a crea un look avantajos. Experiența echipei este un punct forte, asigurând rezultate de calitate superioară.</p>
+        
+        <p>Salonul se distinge printr-o <strong>ambianță primitoare și un spațiu bine organizat</strong>. Deși spațiul propriu-zis este compact, atmosfera este una confortabilă, iar atenția la detalii contribuie la o experiență extrem de plăcută. Mulți clienți apreciază în mod deosebit soluțiile creative oferite chiar și în situații neobișnuite.</p>
+      </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="container" id="features">
+      <div class="section-title">
+        <div class="subtitle-badge">Facilități & Confort</div>
+        <h2>Caracteristici și Servicii</h2>
+      </div>
+
+      <div class="grid-4">
+        <div class="feature-card">
+          <i class="fas fa-female"></i>
+          <h4>Deținută de o Femeie</h4>
+          <p>Companie deținută și administrată cu pasiune de o femeie.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fas fa-credit-card"></i>
+          <h4>Plăți Digitale & NFC</h4>
+          <p>Acceptăm carduri de debit și plăți rapide pe mobil prin NFC.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fas fa-calendar-check"></i>
+          <h4>Programare în Avans</h4>
+          <p>Se recomandă programarea prealabilă pentru un timp de așteptare minim.</p>
+        </div>
+
+        <div class="feature-card">
+          <i class="fas fa-restroom"></i>
+          <h4>Dotări Salon</h4>
+          <p>Spațiu modern, igienizat, prevăzut cu toaletă dedicată clienților.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="container" id="services">
+      <div class="section-title">
+        <div class="subtitle-badge">Experiență & Soluții Creative</div>
+        <h2>Serviciile Noastre</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3><i class="fas fa-cut"></i> Frizerie Bărbați</h3>
+          <div class="service-item"><span>Tunsoare Clasică / Fade</span><span class="service-price">50 RON</span></div>
+          <div class="service-item"><span>Aranjat / Contur Barbă</span><span class="service-price">25 RON</span></div>
+          <div class="service-item"><span>Pachet Barbershop Complete</span><span class="service-price">70 RON</span></div>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-pump-soap"></i> Coafură & Styling</h3>
+          <div class="service-item"><span>Tunsoare Damă & Aranjat</span><span class="service-price">70 RON</span></div>
+          <div class="service-item"><span>Coafat / Styling Evenimente</span><span class="service-price">100+ RON</span></div>
+          <div class="service-item"><span>Vopsit & Schimbare Look</span><span class="service-price">150+ RON</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Booking Form Section -->
+    <section class="container" id="booking">
+      <div class="booking-card">
+        <div style="text-align: center; margin-bottom: 2rem;">
+          <div class="subtitle-badge">Rezervare Rapidă</div>
+          <h2 style="font-family: 'Playfair Display', serif; color: #fff;">Programează o Vizită</h2>
+        </div>
+
+        <form id="appointmentForm" onsubmit="saveAppointment(event)">
+          <div class="form-group">
+            <label>Nume & Prenume</label>
+            <input type="text" id="clientName" required placeholder="Ex. Maria Popescu">
+          </div>
+
+          <div class="form-group">
+            <label>Număr Telefon</label>
+            <input type="tel" id="clientPhone" required placeholder="Ex. 0720 000 000">
+          </div>
+
+          <div class="form-group">
+            <label>Serviciu Dorit</label>
+            <select id="clientService" required>
+              <option value="">Alege serviciul...</option>
+              <option value="Frizerie Bărbați">Frizerie Bărbați</option>
+              <option value="Coafură / Tunsoare Damă">Coafură / Tunsoare Damă</option>
+              <option value="Vopsit & Styling">Vopsit & Styling</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>Data Programării</label>
+              <input type="date" id="clientDate" required onchange="updateAvailableTimeSlots()">
+            </div>
+
+            <div class="form-group">
+              <label>Ora (Din 30 în 30 min)</label>
+              <select id="clientTime" required disabled>
+                <option value="">Alege data mai întâi...</option>
+              </select>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-gold" style="width: 100%; justify-content: center;">
+            Confirmă Programarea
+          </button>
+        </form>
+
+        <div id="bookingAlert" style="display:none; text-align:center; margin-top:1.5rem; font-weight:600;"></div>
+      </div>
+    </section>
+
+    <!-- Contact & Hours & Google Maps Section -->
+    <section class="container" id="contact">
+      <div class="section-title">
+        <div class="subtitle-badge">Ne Găsești Ușor</div>
+        <h2>Locație & Ore de Program</h2>
+      </div>
+
+      <div class="grid-2">
+        <div class="card">
+          <h3><i class="fas fa-clock"></i> Program de Lucru</h3>
+          <div class="service-item"><span>Luni - Vineri</span><span style="color:#fff;">08:00 - 20:00</span></div>
+          <div class="service-item"><span>Sâmbătă</span><span style="color:#fff;">08:00 - 15:00</span></div>
+          <div class="service-item"><span>Duminică</span><span style="color:var(--danger);">Închis</span></div>
+        </div>
+
+        <div class="card">
+          <h3><i class="fas fa-map-marker-alt"></i> Contact & Adresă</h3>
+          <p style="margin-bottom:0.8rem; color:var(--text-muted);"><i class="fas fa-map-pin" style="color:var(--gold-primary);"></i> <strong>Adresă:</strong> Str. Martir Ioan Stanciu nr. 8, Timișoara</p>
+          <p style="margin-bottom:0.8rem; color:var(--text-muted);"><i class="fas fa-phone" style="color:var(--gold-primary);"></i> <strong>Telefon:</strong> <a href="tel:0720060163" style="color:var(--gold-primary); text-decoration:none;">0720 060 163</a></p>
+          <p style="color:var(--text-muted);"><i class="fas fa-star" style="color:var(--gold-primary);"></i> <strong>Rating:</strong> 4.2 / 5 (53 Recenzii Google)</p>
+        </div>
+      </div>
+
+      <!-- Google Maps Embed -->
+      <div class="map-container">
+        <iframe 
+          src="https://maps.google.com/maps?q=Strada%20Martir%20Ioan%20Stanciu%20nr.%208,%20Timi%C8%99oara&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+          allowfullscreen="" 
+          loading="lazy" 
+          referrerpolicy="no-referrer-when-downgrade">
+        </iframe>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- ================= ADMIN VIEW ================= -->
+  <div id="adminView" class="admin-panel container">
+    <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:2rem; flex-wrap:wrap; gap:1rem;">
+      <h2 style="font-family: 'Playfair Display', serif; color: var(--gold-primary);">Panou Administrare Salon</h2>
+      <button onclick="logoutAdmin()" class="btn-outline" style="padding:0.4rem 1rem; font-size:0.8rem;"><i class="fas fa-sign-out-alt"></i> Deconectare Admin</button>
+    </div>
+
+    <!-- Stats -->
+    <div class="admin-stats">
+      <div class="stat-card">
+        <h4 id="statTotal">0</h4>
+        <p style="color:var(--text-muted); font-size:0.85rem;">Total Programări</p>
+      </div>
+      <div class="stat-card">
+        <h4 id="statPending">0</h4>
+        <p style="color:var(--text-muted); font-size:0.85rem;">În Așteptare</p>
+      </div>
+      <div class="stat-card">
+        <h4 id="statConfirmed">0</h4>
+        <p style="color:var(--text-muted); font-size:0.85rem;">Confirmate</p>
+      </div>
+    </div>
+
+    <!-- Admin Settings Grid -->
+    <div class="admin-grid">
+      <div class="card">
+        <h3><i class="fas fa-calendar-minus"></i> Zile Libere / Concediu</h3>
+        <p style="color: var(--text-muted); font-size: 0.85rem; margin-bottom: 1rem;">Blochează zile complete din calendar. Orele nu vor fi accesibile.</p>
+        
+        <div style="display: flex; gap: 0.5rem; margin-bottom: 1rem;">
+          <input type="date" id="newBlockedDate" style="padding: 0.6rem; background: #0f0f12; border: 1px solid var(--border-subtle); color: #fff; border-radius: 6px; flex-grow: 1;">
+          <button onclick="addBlockedDate()" class="btn-gold" style="padding: 0.6rem 1rem;"><i class="fas fa-plus"></i> Blochează</button>
+        </div>
+
+        <div id="blockedDatesContainer"></div>
+      </div>
+    </div>
+
+    <!-- Appointments Table -->
+    <div class="card" style="padding: 1.5rem 0 0 0; overflow: hidden;">
+      <h3 style="padding-left: 1.5rem;"><i class="fas fa-list-ul"></i> Lista Programărilor</h3>
+      <div class="table-container" style="border: none; border-radius: 0;">
+        <table>
+          <thead>
+            <tr>
+              <th>Client</th>
+              <th>Telefon</th>
+              <th>Serviciu</th>
+              <th>Data & Ora</th>
+              <th>Status</th>
+              <th>Acțiuni / Notificări</th>
+            </tr>
+          </thead>
+          <tbody id="appointmentsTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Admin -->
+  <div class="modal-overlay" id="passwordModal">
+    <div class="modal-card">
+      <div class="subtitle-badge"><i class="fas fa-lock"></i> Acces Restricționat</div>
+      <h3 style="color: #fff; font-family: 'Playfair Display', serif; margin-bottom: 1.5rem;">Autentificare Admin</h3>
+      
+      <form onsubmit="verifyAdminPassword(event)">
+        <div class="form-group">
+          <input type="password" id="adminPasswordInput" placeholder="Introdu parola" required style="text-align: center;">
+        </div>
+        
+        <div style="display: flex; gap: 0.5rem;">
+          <button type="button" onclick="closePasswordModal()" class="btn-outline" style="flex: 1; justify-content: center;">Anulează</button>
+          <button type="submit" class="btn-gold" style="flex: 1; justify-content: center;">Intră</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Frizerie Coafor Irima. Str. Martir Ioan Stanciu nr. 8, Timișoara.</p>
+  </footer>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const today = new Date().toISOString().split('T')[0];
+      document.getElementById('clientDate').setAttribute('min', today);
+    });
+
+    let appointments = JSON.parse(localStorage.getItem('irima_appts')) || [
+      { id: 1, name: "Maria Popescu", phone: "0720111222", service: "Coafură / Tunsoare Damă", date: "2026-09-10", time: "14:00", status: "Confirmed" },
+      { id: 2, name: "Ioan Radu", phone: "0720333444", service: "Frizerie Bărbați", date: "2026-09-10", time: "15:30", status: "Pending" }
+    ];
+
+    let blockedDates = JSON.parse(localStorage.getItem('irima_blocked_dates')) || ["2026-12-25", "2026-01-01"];
+    const currentAdminPass = 'Admin Irima';
+    let isAdminLoggedIn = false;
+
+    function generateTimeSlots(startHour, endHour) {
+      const slots = [];
+      for (let hour = startHour; hour < endHour; hour++) {
+        const hStr = hour < 10 ? '0' + hour : '' + hour;
+        slots.push(`${hStr}:00`);
+        slots.push(`${hStr}:30`);
+      }
+      return slots;
+    }
+
+    function updateAvailableTimeSlots() {
+      const dateInput = document.getElementById('clientDate').value;
+      const timeSelect = document.getElementById('clientTime');
+      const alertBox = document.getElementById('bookingAlert');
+
+      alertBox.style.display = 'none';
+      timeSelect.innerHTML = '';
+
+      if (!dateInput) {
+        timeSelect.disabled = true;
+        timeSelect.innerHTML = '<option value="">Alege data mai întâi...</option>';
+        return;
+      }
+
+      if (blockedDates.includes(dateInput)) {
+        timeSelect.disabled = true;
+        timeSelect.innerHTML = '<option value="">Salon Închis</option>';
+        alertBox.style.display = 'block';
+        alertBox.style.color = 'var(--danger)';
+        alertBox.innerHTML = '<i class="fas fa-exclamation-triangle"></i> Salonul este închis în această dată (Zi liberă / Concediu).';
+        return;
+      }
+
+      const selectedDate = new Date(dateInput + 'T00:00:00');
+      const dayOfWeek = selectedDate.getDay();
+
+      if (dayOfWeek === 0) { // Duminică
+        timeSelect.disabled = true;
+        timeSelect.innerHTML = '<option value="">Salon Închis Duminica</option>';
+        alertBox.style.display = 'block';
+        alertBox.style.color = 'var(--danger)';
+        alertBox.innerHTML = '<i class="fas fa-times-circle"></i> Salonul este închis Duminica.';
+        return;
+      }
+
+      let allSlots = [];
+      if (dayOfWeek >= 1 && dayOfWeek <= 5) { // Luni - Vineri: 08:00 - 20:00
+        allSlots = generateTimeSlots(8, 20);
+      } else if (dayOfWeek === 6) { // Sâmbătă: 08:00 - 15:00
+        allSlots = generateTimeSlots(8, 15);
+      }
+
+      // Verificăm dacă data selectată este ziua de azi și eliminăm orele trecute
+      const now = new Date();
+      const year = now.getFullYear();
+      const month = String(now.getMonth() + 1).padStart(2, '0');
+      const day = String(now.getDate()).padStart(2, '0');
+      const todayStr = `${year}-${month}-${day}`;
+
+      if (dateInput === todayStr) {
+        const currentHour = now.getHours();
+        const currentMinute = now.getMinutes();
+
+        allSlots = allSlots.filter(slot => {
+          const [sHour, sMinute] = slot.split(':').map(Number);
+          if (sHour > currentHour) return true;
+          if (sHour === currentHour && sMinute > currentMinute) return true;
+          return false;
+        });
+      }
+
+      const bookedTimes = appointments
+        .filter(a => a.date === dateInput && a.status !== 'Cancelled')
+        .map(a => a.time);
+
+      const availableSlots = allSlots.filter(t => !bookedTimes.includes(t));
+
+      if (availableSlots.length === 0) {
+        timeSelect.disabled = true;
+        timeSelect.innerHTML = '<option value="">Fără ore libere</option>';
+        alertBox.style.display = 'block';
+        alertBox.style.color = 'var(--danger)';
+        alertBox.innerHTML = '<i class="fas fa-calendar-times"></i> Nu mai sunt ore disponibile pentru această zi!';
+        return;
+      }
+
+      timeSelect.disabled = false;
+      timeSelect.innerHTML = '<option value="">Alege ora dorită...</option>';
+      availableSlots.forEach(slot => {
+        const option = document.createElement('option');
+        option.value = slot;
+        option.textContent = slot;
+        timeSelect.appendChild(option);
+      });
+    }
+
+    function saveAppointment(e) {
+      e.preventDefault();
+      
+      const newAppt = {
+        id: Date.now(),
+        name: document.getElementById('clientName').value.trim(),
+        phone: document.getElementById('clientPhone').value.trim(),
+        service: document.getElementById('clientService').value,
+        date: document.getElementById('clientDate').value,
+        time: document.getElementById('clientTime').value,
+        status: "Pending"
+      };
+
+      if (!newAppt.time) {
+        alert("Te rugăm să selectezi o oră validă.");
+        return;
+      }
+
+      appointments.push(newAppt);
+      localStorage.setItem('irima_appts', JSON.stringify(appointments));
+
+      document.getElementById('appointmentForm').reset();
+      document.getElementById('clientTime').disabled = true;
+      document.getElementById('clientTime').innerHTML = '<option value="">Alege data mai întâi...</option>';
+
+      const alertBox = document.getElementById('bookingAlert');
+      alertBox.style.display = 'block';
+      alertBox.style.color = 'var(--success)';
+      alertBox.innerHTML = `<i class="fas fa-check-circle"></i> Programare trimisă cu succes pentru ${newAppt.date} ora ${newAppt.time}! Te vom contacta curând.`;
+
+      if (isAdminLoggedIn) renderAdminPanel();
+    }
+
+    function handleAdminToggle() {
+      if (isAdminLoggedIn) {
+        showView('admin');
+      } else {
+        document.getElementById('passwordModal').style.display = 'flex';
+        document.getElementById('adminPasswordInput').focus();
+      }
+    }
+
+    function closePasswordModal() {
+      document.getElementById('passwordModal').style.display = 'none';
+      document.getElementById('adminPasswordInput').value = '';
+    }
+
+    function verifyAdminPassword(e) {
+      e.preventDefault();
+      const inputPass = document.getElementById('adminPasswordInput').value;
+
+      if (inputPass === currentAdminPass) {
+        isAdminLoggedIn = true;
+        closePasswordModal();
+        showView('admin');
+        renderAdminPanel();
+      } else {
+        alert("Parolă incorectă! Încearcă din nou.");
+        document.getElementById('adminPasswordInput').value = '';
+      }
+    }
+
+    function logoutAdmin() {
+      isAdminLoggedIn = false;
+      showView('client');
+    }
+
+    function showView(view) {
+      const clientView = document.getElementById('clientView');
+      const adminView = document.getElementById('adminView');
+      const modeBtn = document.getElementById('modeToggleBtn');
+
+      if (view === 'admin') {
+        clientView.style.display = 'none';
+        adminView.classList.add('active');
+        modeBtn.innerHTML = '<i class="fas fa-user-check"></i> În Panou Admin';
+      } else {
+        clientView.style.display = 'block';
+        adminView.classList.remove('active');
+        modeBtn.innerHTML = '<i class="fas fa-lock"></i> Panou Admin';
+      }
+    }
+
+    function renderAdminPanel() {
+      const tbody = document.getElementById('appointmentsTableBody');
+      tbody.innerHTML = '';
+
+      document.getElementById('statTotal').innerText = appointments.length;
+      document.getElementById('statPending').innerText = appointments.filter(a => a.status === 'Pending').length;
+      document.getElementById('statConfirmed').innerText = appointments.filter(a => a.status === 'Confirmed').length;
+
+      appointments.sort((a, b) => new Date(b.date + 'T' + b.time) - new Date(a.date + 'T' + a.time));
+
+      appointments.forEach(a => {
+        const tr = document.createElement('tr');
+        
+        const cleanPhone = a.phone.replace(/[^0-9]/g, '');
+        const formattedPhoneForWhatsApp = cleanPhone.startsWith('0') ? '4' + cleanPhone : cleanPhone;
+        
+        const textMsg = `Buna ziua ${a.name}, va confirmam programarea la Frizerie Coafor Irima pentru ${a.service} in data de ${a.date} ora ${a.time}. Va asteptam!`;
+        const waLink = `https://wa.me/${formattedPhoneForWhatsApp}?text=${encodeURIComponent(textMsg)}`;
+        const smsLink = `sms:${cleanPhone}?body=${encodeURIComponent(textMsg)}`;
+
+        tr.innerHTML = `
+          <td><strong>${a.name}</strong></td>
+          <td><a href="tel:${a.phone}" style="color: var(--gold-primary); text-decoration: none;">${a.phone}</a></td>
+          <td>${a.service}</td>
+          <td><span style="color:var(--gold-primary);">${a.date}</span> @ <strong>${a.time}</strong></td>
+          <td><span class="status-badge status-${a.status}">${a.status}</span></td>
+          <td>
+            <button onclick="changeStatus(${a.id}, 'Confirmed')" class="action-btn" title="Confirmă" style="color:var(--success);"><i class="fas fa-check-circle"></i></button>
+            <button onclick="changeStatus(${a.id}, 'Cancelled')" class="action-btn" title="Anulează" style="color:var(--danger);"><i class="fas fa-times-circle"></i></button>
+            <button onclick="deleteAppointment(${a.id})" class="action-btn" title="Șterge"><i class="fas fa-trash"></i></button>
+            <a href="${waLink}" target="_blank" class="action-btn" title="Trimite WhatsApp" style="color:var(--whatsapp);"><i class="fab fa-whatsapp"></i></a>
+            <a href="${smsLink}" class="action-btn" title="Trimite SMS" style="color:var(--sms);"><i class="fas fa-comment-alt"></i></a>
+          </td>
+        `;
+        tbody.appendChild(tr);
+      });
+
+      renderBlockedDates();
+    }
+
+    function changeStatus(id, newStatus) {
+      appointments = appointments.map(a => a.id === id ? { ...a, status: newStatus } : a);
+      localStorage.setItem('irima_appts', JSON.stringify(appointments));
+      renderAdminPanel();
+    }
+
+    function deleteAppointment(id) {
+      if (confirm('Sigur dorești să ștergi această programare?')) {
+        appointments = appointments.filter(a => a.id !== id);
+        localStorage.setItem('irima_appts', JSON.stringify(appointments));
+        renderAdminPanel();
+      }
+    }
+
+    function renderBlockedDates() {
+      const container = document.getElementById('blockedDatesContainer');
+      container.innerHTML = '';
+
+      if (blockedDates.length === 0) {
+        container.innerHTML = '<span style="color: var(--text-muted); font-size: 0.85rem;">Nicio zi blocată.</span>';
+        return;
+      }
+
+      blockedDates.forEach(date => {
+        const chip = document.createElement('span');
+        chip.className = 'off-day-chip';
+        chip.innerHTML = `${date} <i class="fas fa-times" onclick="removeBlockedDate('${date}')"></i>`;
+        container.appendChild(chip);
+      });
+    }
+
+    function addBlockedDate() {
+      const dateInput = document.getElementById('newBlockedDate');
+      const val = dateInput.value;
+
+      if (!val) {
+        alert('Selectează o dată!');
+        return;
+      }
+
+      if (blockedDates.includes(val)) {
+        alert('Această dată este deja blocată!');
+        return;
+      }
+
+      blockedDates.push(val);
+      localStorage.setItem('irima_blocked_dates', JSON.stringify(blockedDates));
+      dateInput.value = '';
+      renderBlockedDates();
+    }
+
+    function removeBlockedDate(date) {
+      blockedDates = blockedDates.filter(d => d !== date);
+      localStorage.setItem('irima_blocked_dates', JSON.stringify(blockedDates));
+      renderBlockedDates();
+    }
+  </script>
+
+</body>
+</html>
